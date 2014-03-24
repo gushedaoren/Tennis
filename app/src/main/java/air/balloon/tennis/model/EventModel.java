@@ -1,5 +1,8 @@
 package air.balloon.tennis.model;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * Created by oliver on 3/21/14.
  */
@@ -15,14 +18,14 @@ public class EventModel {
     private int ownerid;//发起者(应该只有一个发起者）
 
     // same as up
-    private   List<Integer> participants; //参与者
+    private List<Integer> participants; //参与者
     private  String phone;//电话ids
     private  double totolPrice;//费用
 
     private  String require;//对手水平要求
     //评论模型List<>
     private  List<EvaluationModel> evaluations;//评论
-    private  Date commitTime;//发起时间
+    private Date commitTime;//发起时间
     private  Date eventTime;//活动时间
     //应该是场地id，经纬度应该是在场地里面的 （活动应该也有，可以查找附近人发布的活动，我们在发布活动的时候定位地址）
     private  int courtid;//地点

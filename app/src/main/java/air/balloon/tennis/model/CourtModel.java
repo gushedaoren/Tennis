@@ -1,5 +1,7 @@
 package air.balloon.tennis.model;
 
+import java.util.List;
+
 /**
  * Created by oliver on 3/21/14.
  */
@@ -17,7 +19,7 @@ public class CourtModel {
     private String courtCount;//场地片数
 
     // 应该是评价模型的列表List<Evaluate>,评分也在里面
-    private List<Evaluate> evaluates;//评价
+    private List<EvaluationModel> evaluates;//评价
 
     // 没有理解权重的意思
     private String weights;//权重

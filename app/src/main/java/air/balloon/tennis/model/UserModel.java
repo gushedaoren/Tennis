@@ -1,5 +1,8 @@
 package air.balloon.tennis.model;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * Created by oliver on 3/21/14.
  */
