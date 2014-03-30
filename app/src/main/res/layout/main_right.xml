@@ -6,9 +6,11 @@
 
 
     <LinearLayout
+        android:id="@+id/btn_right1"
         android:layout_width="fill_parent"
         android:background="@color/blue"
         android:gravity="center"
+        android:clickable="true"
         android:layout_height="120dp">
 
         <TextView
@@ -22,6 +24,8 @@
         </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/btn_right2"
+        android:clickable="true"
         android:layout_width="fill_parent"
         android:background="@color/greenyellow"
         android:gravity="center"
@@ -38,7 +42,9 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/btn_right3"
         android:layout_width="fill_parent"
+        android:clickable="true"
         android:background="@color/blueviolet"
         android:gravity="center"
         android:layout_height="150dp">

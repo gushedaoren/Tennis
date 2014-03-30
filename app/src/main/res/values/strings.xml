@@ -6,4 +6,20 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_base">BaseActivity</string>
 
+    <!-- Strings related to login -->
+    <string name="prompt_user">账号</string>
+    <string name="prompt_register_user">手机号/邮箱</string>
+    <string name="prompt_password">密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="KeepPassword">记住密码</string>
+    <string name="freeSignup">免费注册</string>
+    <string name="title_activity_register">Register</string>
+
+    <string name="register">注册</string>
+
+    <string name="man">先生</string>
+    <string name="women">女士</string>
+
+    <string name="submit">提交</string>
+
 </resources>

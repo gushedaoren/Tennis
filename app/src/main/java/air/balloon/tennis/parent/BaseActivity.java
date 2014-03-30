@@ -7,11 +7,13 @@ import android.content.pm.PackageManager;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 
 import com.umeng.analytics.MobclickAgent;
 
 import air.balloon.tennis.app.R;
+import air.balloon.tennis.utils.MyLog;
 
 public class BaseActivity extends Activity{
 
@@ -25,6 +27,15 @@ public class BaseActivity extends Activity{
 
     }
 
+
+    public void setTitleOnTopBar(String title){
+
+        TextView textView= (TextView) findViewById(R.id.title_bar_title
+        );
+
+        textView.setText(title);
+
+    }
 
     @Override
     protected void onResume() {
@@ -61,7 +72,9 @@ public class BaseActivity extends Activity{
                             PackageManager.GET_META_DATA);
 
             String msg=appInfo.metaData.getString("UMENG_CHANNEL");
-            Log.i(getLocalClassName(),"CHANNEL:"+msg);
+           // Log.i(getLocalClassName(),"CHANNEL:"+msg);
+
+            MyLog.print(getLocalClassName(),"CHANNEL:"+msg);
 
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

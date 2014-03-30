@@ -1,43 +1,87 @@
 package air.balloon.tennis.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import air.balloon.tennis.parent.BaseActivity;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener{
+
+
+    LinearLayout btnLeft1,btnLeft2,btnLeft3,btnRight1,btnRight2,btnRight3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findViews();
 
+    }
+
+
+    private void findViews(){
+
+        btnLeft1= (LinearLayout) findViewById(R.id.btn_left1);
+
+        btnLeft2=(LinearLayout) findViewById(R.id.btn_left2);
+
+        btnLeft3=(LinearLayout) findViewById(R.id.btn_left3);
+
+        btnRight1=(LinearLayout) findViewById(R.id.btn_right1);
+
+        btnRight2=(LinearLayout) findViewById(R.id.btn_right2);
+
+        btnRight3=(LinearLayout) findViewById(R.id.btn_right3);
+
+
+        btnLeft1.setOnClickListener(this);
+        btnLeft2.setOnClickListener(this);
+        btnLeft3.setOnClickListener(this);
+
+
+        btnRight1.setOnClickListener(this);
+        btnRight2.setOnClickListener(this);
+        btnRight3.setOnClickListener(this);
     }
 
 
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+    public void onClick(View v) {
+        Intent intent=new Intent();
+        switch (v.getId()){
+            case R.id.btn_left1:
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+                break;
+            case R.id.btn_left2:
+
+
+                break;
+            case R.id.btn_left3:
+
+
+                break;
+            case R.id.btn_right1:
+
+
+                break;
+            case R.id.btn_right2:
+                intent.setClass(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_right3:
+
+
+                break;
+            default:
+                break;
         }
-        return super.onOptionsItemSelected(item);
     }
-
 }

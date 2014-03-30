@@ -4,20 +4,17 @@
 
     <uses-sdk android:minSdkVersion="10" />
 
-    <!-- 访问互联网权限 根据需要添加-->
+    <!-- 访问互联网权限 根据需要添加 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- SDCARD读写权限 根据需要添加 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- 网络状态检测权限  根据需要添加-->
+    <!-- 网络状态检测权限  根据需要添加 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -29,7 +26,6 @@
             android:name="UMENG_CHANNEL"
             android:value="unreleased" />
 
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -39,7 +35,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".LoginActivity" >
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
     </application>
 
 </manifest>
