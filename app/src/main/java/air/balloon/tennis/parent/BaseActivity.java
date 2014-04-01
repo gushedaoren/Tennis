@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -17,12 +18,11 @@ import air.balloon.tennis.utils.MyLog;
 
 public class BaseActivity extends Activity{
 
+    public SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-
-
 
 
     }
@@ -42,7 +42,7 @@ public class BaseActivity extends Activity{
         super.onResume();
       //  TALogger.i(this,this.getCallingActivity()+" on resume");
 
-        printChanel();;
+
         MobclickAgent.onPageStart(String.valueOf(this.getComponentName())); //统计页面
         MobclickAgent.onResume(this);    //统计时长
 

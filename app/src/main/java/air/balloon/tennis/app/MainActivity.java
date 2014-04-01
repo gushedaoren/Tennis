@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import air.balloon.tennis.db.MyDatabase;
 import air.balloon.tennis.parent.BaseActivity;
 
 
@@ -19,6 +20,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        db= MyDatabase.getInstance(this);
+        printChanel();
 
         findViews();
 

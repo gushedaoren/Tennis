@@ -61,8 +61,12 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 
 
     private void findViews() {
+
+
         btnSignup= (LinearLayout) findViewById(R.id.signup);
         btnSignup.setOnClickListener(this);
+
+
     }
 
     @Override
