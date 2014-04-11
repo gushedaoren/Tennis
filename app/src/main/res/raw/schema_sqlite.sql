@@ -1,4 +1,5 @@
---	基础城市或地址
+
+--	基础城市或地址 
 drop table if exists tb_base_city;
 
 create table tb_base_city (
@@ -48,8 +49,8 @@ create table tb_court (
     `district_id` bigint  null,
     `address` varchar(255) null,
     `weights` varchar(255) null,
-    `latitude` double(5,10)  null,
-    `longitude` double(5,10)  null,
+    `latitude` double(10,8)  null,
+    `longitude` double(10,8)  null,
     `courtDesc` varchar(255) null,
     primary key (id)
 ) ;
@@ -96,10 +97,10 @@ create table event_tb (
     `require` varchar(255) null,
     `category_id` bigint  null,
     `address` varchar(255) null,
-    `totolPrice` double(5,10)  null,
+    `totolPrice` double(10,8)  null,
     `phone` varchar(255) null,
-    `latitude` double(5,10)  null,
-    `longitude` double(5,10)  null,
+    `latitude` double(10,8)  null,
+    `longitude` double(10,8)  null,
     `descrition` varchar(255) null,
     `remark` varchar(255) null,
     `title` bigint  null,
