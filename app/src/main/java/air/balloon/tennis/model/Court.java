@@ -165,7 +165,24 @@ public class Court {
     public void setLatitude(double latitude){
     	this.latitude = latitude;
     }
-    
 
 
+    @Override
+    public String toString() {
+        return "Court{" +
+                "id=" + id +
+                ", address='" + address + '\'' +
+                ", city=" + city +
+                ", district=" + district +
+                ", phone='" + phone + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                ", fee='" + fee + '\'' +
+                ", courtDesc='" + courtDesc + '\'' +
+                ", courtCount='" + courtCount + '\'' +
+                ", weights='" + weights + '\'' +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                '}';
+    }
 }

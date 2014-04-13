@@ -1,5 +1,8 @@
 package air.balloon.tennis.model;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  *
  * @author gen code 
@@ -10,7 +13,7 @@ public class Event {
     /**  */
     private long id;
     /**  */
-    private 标题 title;
+    private String title;
     /** 内容描述 */
     private String descrition;
     /**  // 发起者 */
@@ -28,11 +31,11 @@ public class Event {
     /** 发起时间 */
     private Date commitTime;
     /** 活动时间 */
-    private Date eventTime;
+    private long eventTime;
     /** 地点 */
     private String address;
     /** 场地 */
-    private List<TMCourt> courtList;
+    private List<Court> courtList;
     /** 经度 */
     private double longitude;
     /** 纬度 */
@@ -61,12 +64,12 @@ public class Event {
     }
     
     /** get  */
-    public 标题 getTitle(){
+    public String getTitle(){
     	return this.title;
     }
 
     /** set  */
-    public void setTitle(标题 title){
+    public void setTitle(String title){
     	this.title = title;
     }
     
@@ -139,27 +142,23 @@ public class Event {
     public void setEvaluateList(List<Evaluate> evaluateList){
     	this.evaluateList = evaluateList;
     }
-    
-    /** get 发起时间 */
-    public Date getCommitTime(){
-    	return this.commitTime;
+
+    public Date getCommitTime() {
+        return commitTime;
     }
 
-    /** set 发起时间 */
-    public void setCommitTime(Date commitTime){
-    	this.commitTime = commitTime;
-    }
-    
-    /** get 活动时间 */
-    public Date getEventTime(){
-    	return this.eventTime;
+    public void setCommitTime(Date commitTime) {
+        this.commitTime = commitTime;
     }
 
-    /** set 活动时间 */
-    public void setEventTime(Date eventTime){
-    	this.eventTime = eventTime;
+    public long getEventTime() {
+        return eventTime;
     }
-    
+
+    public void setEventTime(long eventTime) {
+        this.eventTime = eventTime;
+    }
+
     /** get 地点 */
     public String getAddress(){
     	return this.address;
@@ -171,12 +170,12 @@ public class Event {
     }
     
     /** get 场地 */
-    public List<TMCourt> getCourtList(){
+    public List<Court> getCourtList(){
     	return this.courtList;
     }
 
     /** set 场地 */
-    public void setCourtList(List<TMCourt> courtList){
+    public void setCourtList(List<Court> courtList){
     	this.courtList = courtList;
     }
     
@@ -249,7 +248,31 @@ public class Event {
     public void setStartUsersList(List<TennisUser> startUsersList){
     	this.startUsersList = startUsersList;
     }
-    
 
 
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", descrition='" + descrition + '\'' +
+                ", owner=" + owner +
+                ", participantList=" + participantList +
+                ", phone='" + phone + '\'' +
+                ", totolPrice=" + totolPrice +
+                ", require='" + require + '\'' +
+                ", evaluateList=" + evaluateList +
+                ", commitTime=" + commitTime +
+                ", eventTime=" + eventTime +
+                ", address='" + address + '\'' +
+                ", courtList=" + courtList +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", remark='" + remark + '\'' +
+                ", category=" + category +
+                ", statues=" + statues +
+                ", weight=" + weight +
+                ", startUsersList=" + startUsersList +
+                '}';
+    }
 }

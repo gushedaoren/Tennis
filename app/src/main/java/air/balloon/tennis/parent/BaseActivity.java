@@ -19,10 +19,12 @@ import air.balloon.tennis.utils.MyLog;
 public class BaseActivity extends Activity{
 
     public SQLiteDatabase db;
+    public String TAG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+        TAG=getLocalClassName();
 
 
     }

@@ -1,5 +1,7 @@
 package air.balloon.tennis.model;
 
+import java.util.Date;
+
 /**
  *
  * @author gen code 

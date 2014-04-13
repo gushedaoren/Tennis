@@ -62,6 +62,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.btn_left1:
 
+                intent.setClass(getApplicationContext(),EventActivity.class);
+                startActivity(intent);
+
                 break;
             case R.id.btn_left2:
 
