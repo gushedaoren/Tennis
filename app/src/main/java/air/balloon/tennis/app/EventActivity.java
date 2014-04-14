@@ -74,7 +74,7 @@ public class EventActivity extends BaseActivity {
                 String json=new String(responseBody);
 
 
-                Gson gson = new GsonBuilder().registerTypeAdapter(Timestamp.class, new SqlTimestampConverter()).setDateFormat("yyyy-MM-dd HH:mm:ss")
+                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
                         .create();
 
                 Type listType = new TypeToken<LinkedList<Event>>(){}.getType();
@@ -94,15 +94,5 @@ public class EventActivity extends BaseActivity {
         });
 
         return null;
-    }
-}
-
-
- class SqlTimestampConverter implements JsonSerializer<Timestamp> {
-    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    @Override
-    public JsonElement serialize(Timestamp src, Type srcType,
-                                 JsonSerializationContext context) {
-        return new JsonPrimitive(sdf.format(src));
     }
 }
