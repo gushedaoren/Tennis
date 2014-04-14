@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">网球搭子</string>
+    <string name="app_name">爱运动@网球</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_base">BaseActivity</string>
@@ -19,5 +19,6 @@
     <string name="women">女士</string>
     <string name="submit">提交</string>
     <string name="title_activity_event">EventActivity</string>
+    <string name="login">登陆</string>
 
 </resources>

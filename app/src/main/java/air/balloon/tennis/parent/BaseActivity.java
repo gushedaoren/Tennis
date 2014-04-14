@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -20,6 +22,9 @@ public class BaseActivity extends Activity{
 
     public SQLiteDatabase db;
     public String TAG;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +67,15 @@ public class BaseActivity extends Activity{
         MobclickAgent.onPause(this);
     }
 
-
+   public void titleBarAction(){
+       LinearLayout btnBack= (LinearLayout) findViewById(R.id.btn_back);
+       btnBack.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               finish();
+           }
+       });
+   }
 
     public void printChanel(){
 
