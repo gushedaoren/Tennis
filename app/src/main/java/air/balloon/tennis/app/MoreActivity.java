@@ -14,7 +14,7 @@ public class MoreActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more);
-        setTitleOnTopBar(getString(R.string.more));
+        setTitleOnActionBar(getString(R.string.more));
     }
 
 

@@ -33,7 +33,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        setTitleOnTopBar(getString(R.string.register));
+        setTitleOnActionBar(getString(R.string.register));
         findViews();
         genderAction();
 

@@ -3,7 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
 
-    android:background="@color/theme"
+
     android:layout_width="match_parent"
     android:layout_height="50dp">
 
@@ -21,17 +21,19 @@
             android:layout_centerVertical="true"
             android:src="@drawable/title_back"
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_marginLeft="10dp"
             android:layout_height="48dp" />
         </LinearLayout>
 
 
     <TextView
-        android:id="@+id/title_bar_title"
+        android:id="@+id/action_bar_title"
 
         android:textSize="20sp"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:text="@string/app_name"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

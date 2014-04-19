@@ -26,6 +26,8 @@
             android:name="UMENG_CHANNEL"
             android:value="unreleased" />
 
+
+
         <activity
             android:name="air.balloon.tennis.app.MainActivity"
             android:label="@string/app_name" >
@@ -47,7 +49,7 @@
         </activity>
         <activity
             android:name="air.balloon.tennis.app.CourtActivity"
-            android:theme="@style/Theme.AppCompat"
+
             android:label="@string/title_activity_court" >
         </activity>
     </application>

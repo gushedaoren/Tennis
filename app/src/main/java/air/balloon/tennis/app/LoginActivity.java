@@ -54,7 +54,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        setTitleOnTopBar(getString(R.string.login));
+        setTitleOnActionBar(getString(R.string.login));
         findViews();
 
 

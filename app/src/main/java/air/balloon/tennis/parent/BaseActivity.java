@@ -1,6 +1,7 @@
 package air.balloon.tennis.parent;
 
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -8,6 +9,9 @@ import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,22 +26,52 @@ public class BaseActivity extends Activity{
 
     public SQLiteDatabase db;
     public String TAG;
+    View actionTitleView;
 
-
+    public ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         TAG=getLocalClassName();
+        initActionBar();
 
 
     }
 
 
-    public void setTitleOnTopBar(String title){
+    private void initActionBar(){
 
-        TextView textView= (TextView) findViewById(R.id.title_bar_title
+        actionBar=getActionBar();
+
+
+
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(true);
+
+        actionBar.setDisplayUseLogoEnabled(false);
+        actionBar.setDisplayShowHomeEnabled(false);
+
+        actionTitleView= LayoutInflater.from(this
+        ).inflate(R.layout.title_bar,null);
+
+        ActionBar.LayoutParams params=new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,ActionBar.LayoutParams.MATCH_PARENT);
+
+        params.gravity= Gravity.CENTER_HORIZONTAL;
+        actionBar.setCustomView(actionTitleView,params);
+
+        actionBar.setTitle(getString(R.string.back));
+
+
+    }
+
+
+    public void setTitleOnActionBar(String title){
+
+        TextView textView= (TextView) actionTitleView.findViewById(R.id.action_bar_title
         );
 
         textView.setText(title);
@@ -96,4 +130,27 @@ public class BaseActivity extends Activity{
         }
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+
+        if(id==android.R.id.home){
+            this.finish();
+        }
+
+
+
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }
