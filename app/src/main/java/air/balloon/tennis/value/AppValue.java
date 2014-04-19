@@ -5,4 +5,6 @@ package air.balloon.tennis.value;
  */
 public class AppValue {
     public static int CITY_ID;
+
+
 }

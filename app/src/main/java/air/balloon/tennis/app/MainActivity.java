@@ -67,7 +67,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
                 break;
             case R.id.btn_left2:
-
+                intent.setClass(getApplicationContext(),CourtActivity.class);
+                startActivity(intent);
 
                 break;
             case R.id.btn_left3:
@@ -83,7 +84,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 startActivity(intent);
                 break;
             case R.id.btn_right3:
-
+                intent.setClass(getApplicationContext(),MoreActivity.class);
+                startActivity(intent);
 
                 break;
             default:

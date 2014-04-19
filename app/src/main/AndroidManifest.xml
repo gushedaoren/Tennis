@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="air.balloon.tennis.app" >
 
-    <uses-sdk android:minSdkVersion="10" />
+    <uses-sdk android:minSdkVersion="11" />
 
     <!-- 访问互联网权限 根据需要添加 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -37,13 +37,18 @@
         </activity>
         <activity android:name="air.balloon.tennis.app.LoginActivity" >
         </activity>
-        <activity
-            android:name="air.balloon.tennis.app.RegisterActivity"
-             >
+        <activity android:name="air.balloon.tennis.app.RegisterActivity" >
+        </activity>
+        <activity android:name="air.balloon.tennis.app.EventActivity" >
         </activity>
         <activity
-            android:name="air.balloon.tennis.app.EventActivity"
-            >
+            android:name="air.balloon.tennis.app.MoreActivity"
+            android:label="@string/title_activity_more" >
+        </activity>
+        <activity
+            android:name="air.balloon.tennis.app.CourtActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:label="@string/title_activity_court" >
         </activity>
     </application>
 

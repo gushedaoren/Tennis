@@ -11,10 +11,6 @@ public class Court {
     private long id;
     /** 场地地址 */
     private String address;
-    /** 城市id */
-    private BaseCity city;
-    /** 区县id */
-    private BaseCity district;
     /** 联系电话 */
     private String phone;
     /** 开始时间 */
@@ -33,6 +29,10 @@ public class Court {
     private double longitude;
     /** 纬度 */
     private double latitude;
+    /** 城市id */
+    private BaseCity city;
+    /** 区县id */
+    private BaseCity district;
 
 
 	
@@ -54,26 +54,6 @@ public class Court {
     /** set 场地地址 */
     public void setAddress(String address){
     	this.address = address;
-    }
-    
-    /** get 城市id */
-    public BaseCity getCity(){
-    	return this.city;
-    }
-
-    /** set 城市id */
-    public void setCity(BaseCity city){
-    	this.city = city;
-    }
-    
-    /** get 区县id */
-    public BaseCity getDistrict(){
-    	return this.district;
-    }
-
-    /** set 区县id */
-    public void setDistrict(BaseCity district){
-    	this.district = district;
     }
     
     /** get 联系电话 */
@@ -165,24 +145,27 @@ public class Court {
     public void setLatitude(double latitude){
     	this.latitude = latitude;
     }
-
-
-    @Override
-    public String toString() {
-        return "Court{" +
-                "id=" + id +
-                ", address='" + address + '\'' +
-                ", city=" + city +
-                ", district=" + district +
-                ", phone='" + phone + '\'' +
-                ", startTime='" + startTime + '\'' +
-                ", endTime='" + endTime + '\'' +
-                ", fee='" + fee + '\'' +
-                ", courtDesc='" + courtDesc + '\'' +
-                ", courtCount='" + courtCount + '\'' +
-                ", weights='" + weights + '\'' +
-                ", longitude=" + longitude +
-                ", latitude=" + latitude +
-                '}';
+    
+    /** get 城市id */
+    public BaseCity getCity(){
+    	return this.city;
     }
+
+    /** set 城市id */
+    public void setCity(BaseCity city){
+    	this.city = city;
+    }
+    
+    /** get 区县id */
+    public BaseCity getDistrict(){
+    	return this.district;
+    }
+
+    /** set 区县id */
+    public void setDistrict(BaseCity district){
+    	this.district = district;
+    }
+    
+
+
 }
