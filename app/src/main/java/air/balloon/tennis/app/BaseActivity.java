@@ -1,8 +1,9 @@
-package air.balloon.tennis.parent;
+package air.balloon.tennis.app;
 
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
@@ -34,6 +35,7 @@ public class BaseActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         TAG=getLocalClassName();
         initActionBar();
 
@@ -124,6 +126,11 @@ public class BaseActivity extends Activity{
            // Log.i(getLocalClassName(),"CHANNEL:"+msg);
 
             MyLog.print(getLocalClassName(),"CHANNEL:"+msg);
+
+
+            com.umeng.common.Log.LOG=true;
+
+            com.umeng.common.Log.a(TAG, "CHANNEL:"+msg);
 
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

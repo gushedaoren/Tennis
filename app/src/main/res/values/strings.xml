@@ -31,5 +31,6 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_court">找球场</string>
     <string name="back">返回</string>
+    <string name="notify_feedback">您有新消息</string>
 
 </resources>

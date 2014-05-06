@@ -21,7 +21,6 @@ import air.balloon.tennis.model.Evaluate;
 import air.balloon.tennis.model.Event;
 import air.balloon.tennis.model.ImageFile;
 import air.balloon.tennis.model.TennisUser;
-import air.balloon.tennis.parent.BaseActivity;
 import air.balloon.tennis.utils.MyLog;
 
 

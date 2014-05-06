@@ -153,9 +153,6 @@ public class TennisUser {
     public void setAccountLevel(String accountLevel){
     	this.accountLevel = accountLevel;
     }
-
-
-
     
 
 

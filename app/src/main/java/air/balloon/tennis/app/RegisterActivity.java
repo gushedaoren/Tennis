@@ -1,9 +1,6 @@
 package air.balloon.tennis.app;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,7 +12,6 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
 
-import air.balloon.tennis.parent.BaseActivity;
 import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
 
