@@ -1,10 +1,13 @@
 package air.balloon.tennis.app;
 
 import android.os.Bundle;
+import android.widget.ListView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loopj.android.http.*;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -24,7 +27,7 @@ import air.balloon.tennis.model.TennisUser;
 import air.balloon.tennis.utils.MyLog;
 
 
-public class EventActivity extends BaseActivity {
+public class EventActivity extends MListViewActivity {
 
 
     List<Event> listEvent;
@@ -39,6 +42,15 @@ public class EventActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
         setTitleOnActionBar(getString(R.string.title_activity_event));
+
+        pullToRefreshView = (PullToRefreshListView) findViewById(R.id.pull_to_refresh_listview);
+        pullToRefreshView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
+            @Override
+            public void onRefresh(PullToRefreshBase <ListView> refreshView) {
+                // Do work to refresh the list here.
+                new GetDataTask().execute();
+            }
+        });
 
         getEvents();
     }

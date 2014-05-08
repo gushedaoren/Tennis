@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 Log.a(TAG,"reply size:"+devReplies.size());
 
 
-               if(devReplies.size()>=0){
+               if(devReplies.size()>=1){
 
 ////                   String result=devReplies.get(0).toJson().toString();
 ////                   Log.a(TAG,result);

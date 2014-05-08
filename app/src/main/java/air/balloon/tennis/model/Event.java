@@ -1,5 +1,7 @@
 package air.balloon.tennis.model;
 
+import java.util.List;
+
 /**
  *
  * @author gen code 
@@ -249,7 +251,30 @@ public class Event {
     public void setCourts_Court_List(List<Court> courts_Court_List){
     	this.courts_Court_List = courts_Court_List;
     }
-    
 
-
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", descrition='" + descrition + '\'' +
+                ", phone='" + phone + '\'' +
+                ", totolPrice=" + totolPrice +
+                ", require='" + require + '\'' +
+                ", commitTime='" + commitTime + '\'' +
+                ", eventTime='" + eventTime + '\'' +
+                ", address='" + address + '\'' +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", remark='" + remark + '\'' +
+                ", weight=" + weight +
+                ", category=" + category +
+                ", statues=" + statues +
+                ", startUsers_TennisUser_List=" + startUsers_TennisUser_List +
+                ", owners_TennisUser_List=" + owners_TennisUser_List +
+                ", participant_TennisUser_List=" + participant_TennisUser_List +
+                ", comments_Evaluate_List=" + comments_Evaluate_List +
+                ", courts_Court_List=" + courts_Court_List +
+                '}';
+    }
 }
