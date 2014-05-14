@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
  * https://developers.google.com/+/mobile/android/getting-started#step_1_enable_the_google_api
  * and follow the steps in "Step 1" to create an OAuth 2.0 client for your package.
  */
-public class LoginActivity extends BaseActivity implements OnClickListener{
+public class LoginActivity extends ParentActivity implements OnClickListener{
     LinearLayout btnSignup;
 
 

@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import umeng.fb.ConversationActivity;
 
 
-public class MoreActivity extends BaseActivity implements View.OnClickListener{
+public class MoreActivity extends ParentActivity implements View.OnClickListener{
 
 
     LinearLayout btnFeedBack;

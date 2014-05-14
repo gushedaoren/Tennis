@@ -47,14 +47,14 @@
         </activity>
         <activity android:name="air.balloon.tennis.app.RegisterActivity" >
         </activity>
-        <activity android:name="air.balloon.tennis.app.EventActivity" >
+        <activity android:name="air.balloon.tennis.app.EventListActivity" >
         </activity>
         <activity
             android:name="air.balloon.tennis.app.MoreActivity"
             android:label="@string/title_activity_more" >
         </activity>
         <activity
-            android:name="air.balloon.tennis.app.CourtActivity"
+            android:name="air.balloon.tennis.app.CourtListActivity"
 
             android:label="@string/title_activity_court" >
         </activity>

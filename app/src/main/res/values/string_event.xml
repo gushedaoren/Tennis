@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="event_list1">活动名称:</string>
+    <string name="event_list2">地址:</string>
+    <string name="event_list3">活动时间:</string>
+    <string name="event_list4">费用:</string>
+    <string name="event_list5">水平要求:</string>
+    <string name="event_list6">报名情况:</string>
+</resources>

@@ -48,4 +48,17 @@ public class BaseCity {
     
 
 
+
+    public String toString(){
+		return "BaseCity{" + 
+			",id='" + id + "'" + 
+			",cityName='" + cityName + "'" + 
+			",cityType='" + cityType + "'" + 
+		
+		"}";
+
+    }
+
+
+
 }

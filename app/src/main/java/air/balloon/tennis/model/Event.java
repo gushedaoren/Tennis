@@ -36,9 +36,9 @@ public class Event {
     /** 权重 */
     private int weight;
     /** 分类 */
-    private BaseEnum category;
+    private BaseEnum category_BaseEnum_Model;
     /** 状态：2审核中，1未完成，0已完成 */
-    private BaseEnum statues;
+    private BaseEnum statues_BaseEnum_Model;
     /** 收藏 */
     private List<TennisUser> startUsers_TennisUser_List;
     /**  // 发起者 */
@@ -183,23 +183,23 @@ public class Event {
     }
     
     /** get 分类 */
-    public BaseEnum getCategory(){
-    	return this.category;
+    public BaseEnum getCategory_BaseEnum_Model(){
+    	return this.category_BaseEnum_Model;
     }
 
     /** set 分类 */
-    public void setCategory(BaseEnum category){
-    	this.category = category;
+    public void setCategory_BaseEnum_Model(BaseEnum category_BaseEnum_Model){
+    	this.category_BaseEnum_Model = category_BaseEnum_Model;
     }
     
     /** get 状态：2审核中，1未完成，0已完成 */
-    public BaseEnum getStatues(){
-    	return this.statues;
+    public BaseEnum getStatues_BaseEnum_Model(){
+    	return this.statues_BaseEnum_Model;
     }
 
     /** set 状态：2审核中，1未完成，0已完成 */
-    public void setStatues(BaseEnum statues){
-    	this.statues = statues;
+    public void setStatues_BaseEnum_Model(BaseEnum statues_BaseEnum_Model){
+    	this.statues_BaseEnum_Model = statues_BaseEnum_Model;
     }
     
     /** get 收藏 */
@@ -251,30 +251,37 @@ public class Event {
     public void setCourts_Court_List(List<Court> courts_Court_List){
     	this.courts_Court_List = courts_Court_List;
     }
+    
 
-    @Override
-    public String toString() {
-        return "Event{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", descrition='" + descrition + '\'' +
-                ", phone='" + phone + '\'' +
-                ", totolPrice=" + totolPrice +
-                ", require='" + require + '\'' +
-                ", commitTime='" + commitTime + '\'' +
-                ", eventTime='" + eventTime + '\'' +
-                ", address='" + address + '\'' +
-                ", longitude=" + longitude +
-                ", latitude=" + latitude +
-                ", remark='" + remark + '\'' +
-                ", weight=" + weight +
-                ", category=" + category +
-                ", statues=" + statues +
-                ", startUsers_TennisUser_List=" + startUsers_TennisUser_List +
-                ", owners_TennisUser_List=" + owners_TennisUser_List +
-                ", participant_TennisUser_List=" + participant_TennisUser_List +
-                ", comments_Evaluate_List=" + comments_Evaluate_List +
-                ", courts_Court_List=" + courts_Court_List +
-                '}';
+
+
+    public String toString(){
+		return "Event{" + 
+			",id='" + id + "'" + 
+			",title='" + title + "'" + 
+			",descrition='" + descrition + "'" + 
+			",phone='" + phone + "'" + 
+			",totolPrice='" + totolPrice + "'" + 
+			",require='" + require + "'" + 
+			",commitTime='" + commitTime + "'" + 
+			",eventTime='" + eventTime + "'" + 
+			",address='" + address + "'" + 
+			",longitude='" + longitude + "'" + 
+			",latitude='" + latitude + "'" + 
+			",remark='" + remark + "'" + 
+			",weight='" + weight + "'" + 
+			",category_BaseEnum_Model='" + category_BaseEnum_Model + "'" + 
+			",statues_BaseEnum_Model='" + statues_BaseEnum_Model + "'" + 
+			",startUsers_TennisUser_List='" + startUsers_TennisUser_List.toString() + "'" + 
+			",owners_TennisUser_List='" + owners_TennisUser_List.toString() + "'" + 
+			",participant_TennisUser_List='" + participant_TennisUser_List.toString() + "'" + 
+			",comments_Evaluate_List='" + comments_Evaluate_List.toString() + "'" + 
+			",courts_Court_List='" + courts_Court_List.toString() + "'" + 
+		
+		"}";
+
     }
+
+
+
 }

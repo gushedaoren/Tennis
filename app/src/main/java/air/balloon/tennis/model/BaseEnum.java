@@ -60,4 +60,18 @@ public class BaseEnum {
     
 
 
+
+    public String toString(){
+		return "BaseEnum{" + 
+			",id='" + id + "'" + 
+			",enumType='" + enumType + "'" + 
+			",enumValue='" + enumValue + "'" + 
+			",enumDesc='" + enumDesc + "'" + 
+		
+		"}";
+
+    }
+
+
+
 }

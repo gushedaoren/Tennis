@@ -9,6 +9,8 @@ public class Court {
 	
     /**  */
     private long id;
+    /** 场地名称 */
+    private String title;
     /** 场地地址 */
     private String address;
     /** 联系电话 */
@@ -30,9 +32,9 @@ public class Court {
     /** 纬度 */
     private double latitude;
     /** 城市id */
-    private BaseCity city;
+    private BaseCity city_BaseCity_Model;
     /** 区县id */
-    private BaseCity district;
+    private BaseCity district_BaseCity_Model;
 
 
 	
@@ -44,6 +46,16 @@ public class Court {
     /** set  */
     public void setId(long id){
     	this.id = id;
+    }
+    
+    /** get 场地名称 */
+    public String getTitle(){
+    	return this.title;
+    }
+
+    /** set 场地名称 */
+    public void setTitle(String title){
+    	this.title = title;
     }
     
     /** get 场地地址 */
@@ -147,25 +159,49 @@ public class Court {
     }
     
     /** get 城市id */
-    public BaseCity getCity(){
-    	return this.city;
+    public BaseCity getCity_BaseCity_Model(){
+    	return this.city_BaseCity_Model;
     }
 
     /** set 城市id */
-    public void setCity(BaseCity city){
-    	this.city = city;
+    public void setCity_BaseCity_Model(BaseCity city_BaseCity_Model){
+    	this.city_BaseCity_Model = city_BaseCity_Model;
     }
     
     /** get 区县id */
-    public BaseCity getDistrict(){
-    	return this.district;
+    public BaseCity getDistrict_BaseCity_Model(){
+    	return this.district_BaseCity_Model;
     }
 
     /** set 区县id */
-    public void setDistrict(BaseCity district){
-    	this.district = district;
+    public void setDistrict_BaseCity_Model(BaseCity district_BaseCity_Model){
+    	this.district_BaseCity_Model = district_BaseCity_Model;
     }
     
+
+
+
+    public String toString(){
+		return "Court{" + 
+			",id='" + id + "'" + 
+			",title='" + title + "'" +
+			",address='" + address + "'" + 
+			",phone='" + phone + "'" + 
+			",startTime='" + startTime + "'" + 
+			",endTime='" + endTime + "'" + 
+			",fee='" + fee + "'" + 
+			",courtDesc='" + courtDesc + "'" + 
+			",courtCount='" + courtCount + "'" + 
+			",weights='" + weights + "'" + 
+			",longitude='" + longitude + "'" + 
+			",latitude='" + latitude + "'" + 
+			",city_BaseCity_Model='" + city_BaseCity_Model + "'" + 
+			",district_BaseCity_Model='" + district_BaseCity_Model + "'" + 
+		
+		"}";
+
+    }
+
 
 
 }

@@ -11,18 +11,13 @@ import com.umeng.fb.model.Conversation;
 import com.umeng.fb.model.DevReply;
 import com.umeng.fb.model.Reply;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.List;
 
 import air.balloon.tennis.db.MyDatabase;
 import air.balloon.tennis.notify.FeedbackNotification;
-import air.balloon.tennis.utils.MyLog;
-import umeng.fb.ConversationActivity;
 
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends ParentActivity implements View.OnClickListener{
 
 
     LinearLayout btnLeft1,btnLeft2,btnLeft3,btnRight1,btnRight2,btnRight3;
@@ -128,12 +123,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.btn_left1:
 
-                intent.setClass(getApplicationContext(),EventActivity.class);
+                intent.setClass(getApplicationContext(),EventListActivity.class);
                 startActivity(intent);
 
                 break;
             case R.id.btn_left2:
-                intent.setClass(getApplicationContext(),CourtActivity.class);
+                intent.setClass(getApplicationContext(),CourtListActivity.class);
                 startActivity(intent);
 
                 break;

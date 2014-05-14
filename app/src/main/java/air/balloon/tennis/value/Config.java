@@ -14,4 +14,8 @@ public class Config {
 
     public static final String DatabaseName="tennis.sqlite";
 
+    public static  final int HTTP_PORT=8080;
+
+    public static final int HTTPS_PORT=443;
+
 }

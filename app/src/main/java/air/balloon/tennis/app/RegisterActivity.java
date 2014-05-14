@@ -16,7 +16,7 @@ import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
 
 
-public class RegisterActivity extends BaseActivity implements View.OnClickListener{
+public class RegisterActivity extends ParentActivity implements View.OnClickListener{
 
     EditText editUser,editPass1,editPass2;
 

@@ -48,4 +48,17 @@ public class ImageFile {
     
 
 
+
+    public String toString(){
+		return "ImageFile{" + 
+			",id='" + id + "'" + 
+			",fileName='" + fileName + "'" + 
+			",fileUrl='" + fileUrl + "'" + 
+		
+		"}";
+
+    }
+
+
+
 }

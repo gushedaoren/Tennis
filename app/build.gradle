@@ -1,6 +1,9 @@
 apply plugin: 'android'
 
 android {
+
+
+
     compileSdkVersion 19
     buildToolsVersion '19.0.3'
 
@@ -11,9 +14,11 @@ android {
         versionName "1.0"
     }
 
+
+
     signingConfigs {
         myConfig{
-            storeFile file("/Users/oliver/myTeam/androidkey")
+            storeFile file("/Users/oliver/Dropbox/freeTeam/androidkey")
             storePassword "zaq123456"
             keyAlias "gushedaoren"
             keyPassword "zaq123456"
@@ -57,7 +62,12 @@ android {
         }
     }
 
-
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
 
 }
 

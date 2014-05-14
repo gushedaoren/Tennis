@@ -14,7 +14,7 @@ public class Evaluate {
     /** 评分 */
     private double score;
     /** 评论分类 */
-    private BaseEnum category;
+    private BaseEnum category_BaseEnum_Model;
 
 
 	
@@ -49,15 +49,29 @@ public class Evaluate {
     }
     
     /** get 评论分类 */
-    public BaseEnum getCategory(){
-    	return this.category;
+    public BaseEnum getCategory_BaseEnum_Model(){
+    	return this.category_BaseEnum_Model;
     }
 
     /** set 评论分类 */
-    public void setCategory(BaseEnum category){
-    	this.category = category;
+    public void setCategory_BaseEnum_Model(BaseEnum category_BaseEnum_Model){
+    	this.category_BaseEnum_Model = category_BaseEnum_Model;
     }
     
+
+
+
+    public String toString(){
+		return "Evaluate{" + 
+			",id='" + id + "'" + 
+			",evaluate='" + evaluate + "'" + 
+			",score='" + score + "'" + 
+			",category_BaseEnum_Model='" + category_BaseEnum_Model + "'" + 
+		
+		"}";
+
+    }
+
 
 
 }
