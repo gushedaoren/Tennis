@@ -36,8 +36,11 @@
     <string name="title_activity_friend_list">找球友</string>
     <string name="title_activity_friend">球友信息</string>
     <string name="title_activity_court">球场信息</string>
+    <string name="title_activity_conversation">用户反馈</string>
     <string name="OK">确定</string>
     <string name="Cancel">取消</string>
     <string name="exit_dialog_message">亲，真得要退出吗?</string>
+    <string name="share_content">亲，喜欢运动吗？这里有一款运动</string>
+
 
 </resources>

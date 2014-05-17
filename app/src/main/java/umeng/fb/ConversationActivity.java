@@ -29,9 +29,10 @@ import com.umeng.fb.model.Conversation;
 import com.umeng.fb.model.DevReply;
 import com.umeng.fb.model.Reply;
 
+import air.balloon.tennis.app.ParentActivity;
 import air.balloon.tennis.app.R;
 
-public class ConversationActivity extends Activity {
+public class ConversationActivity extends ParentActivity {
 	private static final String TAG = ConversationActivity.class.getName();
 	private FeedbackAgent agent;
 	private Conversation defaultConversation;
@@ -48,6 +49,7 @@ public class ConversationActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout
                 .umeng_fb_activity_conversation);
+        setTitleOnActionBar(getString(R.string.title_activity_conversation));
 		try {
 			agent = new FeedbackAgent(this);
 			defaultConversation = agent.getDefaultConversation();

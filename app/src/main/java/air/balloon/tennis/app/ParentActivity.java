@@ -1,21 +1,27 @@
 package air.balloon.tennis.app;
 
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 
@@ -79,6 +85,7 @@ public class ParentActivity extends FragmentActivity{
         actionBar.setCustomView(actionTitleView,params);
 
         actionBar.setTitle(getString(R.string.back));
+
 
 
     }
@@ -151,12 +158,34 @@ public class ParentActivity extends FragmentActivity{
 
     }
 
+    private ShareActionProvider mShareActionProvider;
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.parent, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.menu_item_share);
+        // Get the provider and hold onto it to set/change the share intent.
+        mShareActionProvider = (ShareActionProvider) menuItem.getActionProvider();
+
+       doShare();
+
+
+
+        return true;
+    }
+
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+
         int id = item.getItemId();
+        MyLog.print(TAG,"menu id:"+id);
         if (id == R.id.action_settings) {
             return true;
         }
@@ -167,10 +196,36 @@ public class ParentActivity extends FragmentActivity{
         }
 
 
+//        if(id==R.id.menu_item_share){
+//            MyLog.print(TAG,"do share");
+//            doShare();
+//
+//        }
+
+
 
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Call to update the share intent
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    public void doShare() {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "Whatever message you want to share");
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT,"title");
+
+      //  startActivity(shareIntent);
+
+        MyLog.print(TAG,"setShareIntent ...");
+        if (mShareActionProvider != null) {
+            MyLog.print(TAG,"setShareIntent success!");
+            mShareActionProvider.setShareIntent(shareIntent);
+
+        }
     }
 
 }

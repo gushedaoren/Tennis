@@ -80,8 +80,11 @@ public class EventAdapter extends BaseAdapter {
             holder.txt4= (android.widget.TextView) convertView.findViewById(R.id.txt4);
             holder.txt5= (android.widget.TextView) convertView.findViewById(R.id.txt5);
             holder.txt6= (android.widget.TextView) convertView.findViewById(R.id.txt6);
-        }
+            convertView.setTag(holder);
 
+        }else{
+           holder= (Holder) convertView.getTag();
+        }
         holder.txt1.setText(event.getTitle());
         holder.txt2.setText(event.getAddress());
         holder.txt3.setText(event.getEventTime());

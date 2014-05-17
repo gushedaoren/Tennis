@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.fb.model.UserInfo;
 
+import air.balloon.tennis.app.ParentActivity;
 import air.balloon.tennis.app.R;
 
 /**
@@ -29,7 +30,7 @@ import air.balloon.tennis.app.R;
  * @author lucas
  * 
  */
-public class ContactActivity extends Activity {
+public class ContactActivity extends ParentActivity {
 
 	/**
 	 * The predefined key used by Umeng Feedback SDK to store non-structural
@@ -54,6 +55,7 @@ public class ContactActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout
 				.umeng_fb_activity_contact);
+        setTitleOnActionBar(getString(R.string.title_activity_conversation));
 		agent = new FeedbackAgent(this);
 
 		backBtn = (ImageView) this.findViewById(R.id

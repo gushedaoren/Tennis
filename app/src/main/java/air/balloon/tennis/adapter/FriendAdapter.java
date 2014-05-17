@@ -41,11 +41,11 @@ public class FriendAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return users.get(position).getId();
     }
-
+    Holder holder=new Holder();
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         TennisUser user=users.get(position);
-        Holder holder=new Holder();
+
         if(convertView==null){
             convertView= LayoutInflater.from(context).inflate(R.layout.friend_list_item,null);
             holder.img1= (ImageView) convertView.findViewById(R.id.img);
@@ -57,6 +57,10 @@ public class FriendAdapter extends BaseAdapter {
 //            holder.txt5= (TextView) convertView.findViewById(R.id.txt5);
 //            holder.txt6= (TextView) convertView.findViewById(R.id.txt6);
 
+            convertView.setTag(holder);
+
+        }else{
+           holder= (Holder) convertView.getTag();
         }
 
         holder.txt1.setText(user.getName());

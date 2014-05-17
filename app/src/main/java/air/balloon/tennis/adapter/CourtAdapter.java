@@ -52,7 +52,10 @@ public class CourtAdapter extends BaseAdapter {
             holder.txt1= (android.widget.TextView) convertView.findViewById(R.id.txt1);
             holder.txt2= (android.widget.TextView) convertView.findViewById(R.id.txt2);
             holder.txt3= (android.widget.TextView) convertView.findViewById(R.id.txt3);
+            convertView.setTag(holder);
 
+        }else{
+          holder= (Holder) convertView.getTag();
         }
 
         holder.txt1.setText(court.getTitle());
