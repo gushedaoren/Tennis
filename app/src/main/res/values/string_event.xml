@@ -8,4 +8,9 @@
     <string name="event_list4">费用:</string>
     <string name="event_list5">水平要求:</string>
     <string name="event_list6">报名情况:</string>
+
+    <string name="event_list_choice1">时间</string>
+    <string name="event_list_choice2">区域</string>
+    <string name="event_list_choice3">水平</string>
+    <string name="event_list_choice4">是否收费</string>
 </resources>

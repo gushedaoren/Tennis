@@ -9,4 +9,7 @@
     <string name="court_number">球场片数:</string>
     <string name="court_phone">联系电话:</string>
     <string name="court_fee">消费标准:</string>
+
+    <string name="court_list_choice1">所在区域</string>
+    <string name="court_list_choice2">是否收费</string>
 </resources>
