@@ -21,11 +21,15 @@ import android.widget.TextView;
 
 import com.umeng.analytics.MobclickAgent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import air.balloon.tennis.app.R;
 import air.balloon.tennis.utils.MyLog;
 
 public class ParentActivity extends FragmentActivity{
 
+    public List<Activity> activities = new ArrayList<Activity>();
     public SQLiteDatabase db;
     public String TAG;
     View actionTitleView;
@@ -35,6 +39,7 @@ public class ParentActivity extends FragmentActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        activities.add(this);
         setContentView(R.layout.activity_base);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         TAG=getLocalClassName();
@@ -43,6 +48,13 @@ public class ParentActivity extends FragmentActivity{
 
     }
 
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        activities.remove(this);
+    }
 
     private void initActionBar(){
 

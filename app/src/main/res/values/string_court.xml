@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="court_list1">球场名称:</string>
+    <string name="court_list2">球场信息:</string>
+    <string name="court_list3">价格:</string>
+
+    <string name="court_address">地址:</string>
+    <string name="court_number">球场片数:</string>
+    <string name="court_phone">联系电话:</string>
+    <string name="court_fee">消费标准:</string>
+</resources>

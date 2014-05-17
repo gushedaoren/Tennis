@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="friend_list1">姓名:</string>
+    <string name="friend_list2">性别:</string>
+    <string name="friend_score">积分</string>
+    <string name="friend_gender">性别:</string>
+    <string name="friend_age">年龄:</string>
+    <string name="friend_level">水平等级:</string>
+    <string name="friend_phone">联系电话:</string>
+    <string name="friend_address">家庭地址:</string>
+</resources>

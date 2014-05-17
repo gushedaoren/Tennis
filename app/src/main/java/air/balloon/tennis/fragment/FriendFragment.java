@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.google.android.gms.common.api.Api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -23,29 +22,22 @@ import org.apache.http.Header;
 
 import java.lang.reflect.Type;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
-import air.balloon.tennis.adapter.CourtAdapter;
-import air.balloon.tennis.adapter.EventAdapter;
-import air.balloon.tennis.app.CourtActivity;
+import air.balloon.tennis.adapter.FriendAdapter;
+import air.balloon.tennis.app.FriendActivity;
 import air.balloon.tennis.app.R;
-import air.balloon.tennis.model.Court;
-import air.balloon.tennis.model.CourtListDTO;
-import air.balloon.tennis.model.Event;
+import air.balloon.tennis.model.TennisUser;
+import air.balloon.tennis.model.TennisUserDTO;
 import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
-import air.balloon.tennis.value.Config;
 
 
 /**
  * Created by oliver on 5/9/14.
  */
-public class CourtFragment extends MListFragment {
-
-    String keyword="";
-    int page=1;
-    List<Court> courts;
+public class FriendFragment extends MListFragment {
+    List<TennisUser> users;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +52,11 @@ public class CourtFragment extends MListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         pullToRefreshView = (PullToRefreshListView) getView().findViewById(R.id.pull_to_refresh_listview);
-        getCourts(keyword,page);
+        getFreinds();
 
         pullToRefreshView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
-            public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+            public void onRefresh(PullToRefreshBase <ListView> refreshView) {
                 // Do work to refresh the list here.
                 new GetDataTask().execute();
             }
@@ -74,9 +66,13 @@ public class CourtFragment extends MListFragment {
         pullToRefreshView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getActivity(), CourtActivity.class);
-                intent.putExtra("id",courts.get(position-1).getId());
+                Intent intent=new Intent(getActivity(), FriendActivity.class);
+                intent.putExtra("id",users.get(position-1).getId());
                 startActivity(intent);
+
+
+
+
             }
         });
     }
@@ -87,7 +83,7 @@ public class CourtFragment extends MListFragment {
         Log.i(
                 TAG,"onCreateView"
         );
-        return inflater.inflate(R.layout.fragment_court_list,container,false);
+        return inflater.inflate(R.layout.fragment_friend_list,container,false);
 
 
 
@@ -108,15 +104,15 @@ public class CourtFragment extends MListFragment {
 
             pullToRefreshView.onRefreshComplete();
             super.onPostExecute(result);
-            getCourts(keyword,page);
+            getFreinds();
         }
     }
-    public Object getCourts(String keyword,int page) {
-        MyLog.print(TAG, "getCourts");
-        String url= API.getCourtList(keyword,page);
+    public Object getFreinds() {
+        MyLog.print(TAG, "getFreinds");
 
-        Log.i(TAG,url);
-        AsyncHttpClient client = new AsyncHttpClient(Config.HTTP_PORT);
+        String url= API.getFriendList("", 1);
+        MyLog.print(TAG,url);
+        AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, new AsyncHttpResponseHandler() {
 
 
@@ -125,28 +121,29 @@ public class CourtFragment extends MListFragment {
                 super.onSuccess(statusCode, headers, responseBody);
                 String json=new String(responseBody);
 
-                Log.i(TAG,json.toString());
+
                 Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
                         .create();
 
-                Type listType = new TypeToken<CourtListDTO>(){}.getType();
 
 
-                CourtListDTO dto=gson.fromJson(json,listType);
+                        Type type = new TypeToken<TennisUserDTO>() {}.getType();
 
-                courts=dto.getCourt_Court_List();
+                        TennisUserDTO dto=gson.fromJson(json,type);
 
-                MyLog.print(TAG,"size:"+courts.size());
+                        users=dto.getUser_TennisUser_List();
 
-                for (Iterator iterator =courts.iterator(); iterator.hasNext();) {
-                    Court court = (Court) iterator.next();
-                    MyLog.print(TAG, "court:" + court.toString());
-                }
+                        MyLog.print(TAG,"size:"+users.size());
+
+                        for (Iterator iterator = users.iterator(); iterator.hasNext();) {
+                            TennisUser user = (TennisUser) iterator.next();
+                            MyLog.print(TAG,"friends:"+user.toString());
+                        }
 
 
+                        FriendAdapter adapter=new FriendAdapter(getActivity().getBaseContext(),users);
+                        pullToRefreshView.setAdapter(adapter);
 
-                CourtAdapter adapter=new CourtAdapter(getActivity().getBaseContext(),courts);
-                pullToRefreshView.setAdapter(adapter);
 
 
 

@@ -14,6 +14,7 @@ import com.umeng.fb.model.Reply;
 import java.util.List;
 
 import air.balloon.tennis.db.MyDatabase;
+import air.balloon.tennis.dialog.MyDialog;
 import air.balloon.tennis.notify.FeedbackNotification;
 
 
@@ -34,6 +35,12 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
 
         initUmeng();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        new MyDialog(this).showExitDialg(activities);
     }
 
     private void initUmeng() {
@@ -133,6 +140,8 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
 
                 break;
             case R.id.btn_left3:
+                intent.setClass(getApplicationContext(),FriendListActivity.class);
+                startActivity(intent);
 
 
                 break;

@@ -12,7 +12,7 @@ public class CourtListActivity extends ParentActivity {
         setContentView(R.layout.activity_court_list);
 
 
-        setTitleOnActionBar(getString(R.string.title_activity_court));
+        setTitleOnActionBar(getString(R.string.title_activity_court_list));
 
 
 

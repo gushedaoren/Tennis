@@ -3,7 +3,6 @@ apply plugin: 'android'
 android {
 
 
-
     compileSdkVersion 19
     buildToolsVersion '19.0.3'
 
@@ -17,7 +16,7 @@ android {
 
 
     signingConfigs {
-        myConfig{
+        myConfig {
             storeFile file("/Users/oliver/Dropbox/freeTeam/androidkey")
             storePassword "zaq123456"
             keyAlias "gushedaoren"
@@ -29,32 +28,32 @@ android {
         test {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-            signingConfig  signingConfigs.myConfig
+            signingConfig signingConfigs.myConfig
         }
 
 
-            hiapk {
-                runProguard false
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-                signingConfig  signingConfigs.myConfig
-            }
-            googleplay {
-                runProguard false
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-                signingConfig  signingConfigs.myConfig
-            }
+        hiapk {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.myConfig
+        }
+        googleplay {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.myConfig
+        }
 
     }
 
-    android.applicationVariants.all{ variant ->
-        variant.processManifest.doLast{
-            copy{
-                from("${buildDir}/manifests"){
+    android.applicationVariants.all { variant ->
+        variant.processManifest.doLast {
+            copy {
+                from("${buildDir}/manifests") {
                     include "${variant.dirName}/AndroidManifest.xml"
                 }
                 into("${buildDir}/manifests/$variant.name")
 
-                filter{
+                filter {
                     String line -> line.replaceAll("unreleased", "$variant.dirName")
                 }
                 variant.processResources.manifestFile = file("${buildDir}/manifests/${variant.name}/${variant.dirName}/AndroidManifest.xml")
@@ -74,16 +73,18 @@ android {
 
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:+'
-    compile 'com.google.code.gson:gson:2.2.+'
-    compile 'com.android.support:gridlayout-v7:+'
-    compile 'com.google.android.gms:play-services:4.2.42'
-    compile 'com.android.support:support-v4:19.+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/umeng_sdk.jar')
     compile files('libs/android-async-http-1.4.4.jar')
     compile project(':pulltorefresh')
+    compile 'com.android.support:appcompat-v7:19.+'
+    compile 'com.android.support:gridlayout-v7:+'
+    compile 'com.google.android.gms:play-services:4.2.42'
+    compile 'com.android.support:support-v4:19.+'
+    compile 'com.google.code.gson:gson:2.2.+'
 }
+
+
 
 
 

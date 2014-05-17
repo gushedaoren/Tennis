@@ -133,6 +133,7 @@ public class EventFragment extends MListFragment {
                             MyLog.print(TAG,"event:"+event.toString());
                         }
 
+                        if(events==null)return;
 
                         EventAdapter adapter=new EventAdapter(getActivity().getBaseContext(),events);
                         pullToRefreshView.setAdapter(adapter);
