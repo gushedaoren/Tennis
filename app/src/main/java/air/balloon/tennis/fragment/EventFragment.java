@@ -56,10 +56,16 @@ public class EventFragment extends MListFragment {
 
 
     @Override
+    public void onStart() {
+        super.onStart();
+        getEvents();
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         pullToRefreshView = (PullToRefreshListView) getView().findViewById(R.id.pull_to_refresh_listview);
-        getEvents();
+
 
         pullToRefreshView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override

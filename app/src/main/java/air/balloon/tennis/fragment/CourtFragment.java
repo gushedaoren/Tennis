@@ -55,12 +55,17 @@ public class CourtFragment extends MListFragment {
 
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        getCourts(keyword,page);
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         pullToRefreshView = (PullToRefreshListView) getView().findViewById(R.id.pull_to_refresh_listview);
-        getCourts(keyword,page);
+
 
         pullToRefreshView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override

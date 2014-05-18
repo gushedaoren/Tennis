@@ -49,10 +49,16 @@ public class FriendFragment extends MListFragment {
 
 
     @Override
+    public void onStart() {
+        super.onStart();
+        getFreinds();
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         pullToRefreshView = (PullToRefreshListView) getView().findViewById(R.id.pull_to_refresh_listview);
-        getFreinds();
+
 
         pullToRefreshView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
@@ -140,6 +146,8 @@ public class FriendFragment extends MListFragment {
                             MyLog.print(TAG,"friends:"+user.toString());
                         }
 
+
+                       if(users==null)return;
 
                         FriendAdapter adapter=new FriendAdapter(getActivity().getBaseContext(),users);
                         pullToRefreshView.setAdapter(adapter);
