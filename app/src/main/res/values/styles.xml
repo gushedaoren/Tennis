@@ -15,6 +15,19 @@
         <item name="actionBarStyle">@style/MyActionBar</item>
     </style>
 
+    <style name="AppNoTitleTheme" parent="@style/Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+
+
+       <item name="android:windowNoTitle">true</item>
+
+        <item name="android:screenOrientation">portrait</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+
 
 
     <style name="editText" parent="@android:style/Widget.EditText">

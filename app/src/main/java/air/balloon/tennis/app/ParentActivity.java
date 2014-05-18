@@ -45,11 +45,12 @@ public class ParentActivity extends FragmentActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initActionBar();
         activities.add(this);
         setContentView(R.layout.activity_base);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         TAG=getLocalClassName();
-        initActionBar();
+
 
 
     }
@@ -62,11 +63,11 @@ public class ParentActivity extends FragmentActivity{
         activities.remove(this);
     }
 
-    private void initActionBar(){
+    public void initActionBar(){
 
         actionBar=getActionBar();
 
-
+        if(actionBar==null)return;
 
         actionBar.setDisplayHomeAsUpEnabled(true);
 

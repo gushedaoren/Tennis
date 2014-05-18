@@ -27,6 +27,7 @@
     android:zAdjustment="top" >
 
     <scale
+        android:duration="2000"
         android:fromXScale="1.0"
         android:fromYScale="1.0"
         android:pivotX="50%p"
@@ -35,6 +36,7 @@
         android:toYScale="0" />
 
     <alpha
+        android:duration="2000"
         android:fromAlpha="1.0"
         android:toAlpha="0" />
 

@@ -77,9 +77,8 @@ dependencies {
     compile 'com.google.android.gms:play-services:4.2.42'
     compile 'com.android.support:support-v4:19.+'
     compile 'com.google.code.gson:gson:2.2.+'
-    compile 'com.android.support:support-v4:+'
-    compile 'com.android.support:appcompat-v7:+'
 }
+
 
 
 

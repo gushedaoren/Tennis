@@ -3,6 +3,7 @@ package air.balloon.tennis.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.LinearLayout;
 
 import com.umeng.common.Log;
@@ -23,13 +24,19 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
 
     LinearLayout btnLeft1,btnLeft2,btnLeft3,btnRight1,btnRight2,btnRight3;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_main);
         db= MyDatabase.getInstance(this);
         printChanel();
-        actionBar.hide();
+
 
         findViews();
 

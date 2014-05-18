@@ -41,6 +41,6 @@
     <string name="Cancel">取消</string>
     <string name="exit_dialog_message">亲，真得要退出吗?</string>
     <string name="share_content">亲，喜欢运动吗？这里有一款运动</string>
-
+    <string name="title_activity_splash">SplashActivity</string>
 
 </resources>
