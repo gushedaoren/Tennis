@@ -19,75 +19,90 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/img"
-                android:layout_centerInParent="true"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:adjustViewBounds="true"
-                android:src="@drawable/court_default"
-                />
+
 
 
          <LinearLayout
+             android:orientation="horizontal"
              android:layout_width="fill_parent"
              android:layout_height="wrap_content">
 
-
              <TextView
+                 android:textSize="18sp"
+                 android:text="@string/event_title"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content" />
+
+
+            <TextView
                  android:id="@+id/txt1"
+                android:textSize="18sp"
+                android:paddingLeft="5dp"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content" />
              </LinearLayout>
 
-
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-
-                <TextView
-                    android:id="@+id/txt2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-
-
             <LinearLayout
                 android:layout_marginTop="5dp"
-                android:paddingLeft="10dp"
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                    android:text="@string/court_address"
+
+                <TextView
+                    android:id="@+id/txt2"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
 
                 <TextView
                     android:id="@+id/txt3"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_marginTop="5dp"
-                android:paddingLeft="10dp"
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
-                <TextView
 
-                    android:text="@string/court_phone"
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_level"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
 
                 <TextView
                     android:id="@+id/txt4"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -95,17 +110,44 @@
 
             <LinearLayout
                 android:layout_marginTop="5dp"
-                android:paddingLeft="10dp"
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
-                <TextView
 
-                    android:text="@string/court_number"
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
 
                 <TextView
                     android:id="@+id/txt5"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <TextView
+                    android:id="@+id/txt6"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -113,17 +155,68 @@
 
             <LinearLayout
                 android:layout_marginTop="5dp"
-                android:paddingLeft="10dp"
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
-                <TextView
 
-                    android:text="@string/court_fee"
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_participants"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
+
                 <TextView
-                    android:id="@+id/txt6"
+                    android:id="@+id/txt7"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_fee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <TextView
+                    android:id="@+id/txt8"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_remark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <TextView
+                    android:id="@+id/txt9"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>

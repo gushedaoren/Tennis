@@ -8,9 +8,14 @@ android {
 
 
 
-
-
     signingConfigs {
+
+        debug {
+            storeFile file("/Users/oliver/Dropbox/freeTeam/androidkey")
+            storePassword "zaq123456"
+            keyAlias "gushedaoren"
+            keyPassword "zaq123456"
+        }
         myConfig {
             storeFile file("/Users/oliver/Dropbox/freeTeam/androidkey")
             storePassword "zaq123456"
@@ -77,6 +82,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:4.2.42'
     compile 'com.android.support:support-v4:19.+'
     compile 'com.google.code.gson:gson:2.2.+'
+    compile files('libs/locSDK_4.1.jar')
 }
 
 

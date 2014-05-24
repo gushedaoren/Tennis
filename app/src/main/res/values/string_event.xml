@@ -13,4 +13,14 @@
     <string name="event_list_choice2">区域</string>
     <string name="event_list_choice3">水平</string>
     <string name="event_list_choice4">是否收费</string>
+
+    <string name="event_title">活动标题:</string>
+    <string name="event_desc">活动说明:</string>
+    <string name="event_address">活动地址</string>
+    <string name="event_level">水平要求:</string>
+    <string name="event_phone">联系电话:</string>
+    <string name="event_time">活动时间:</string>
+    <string name="event_participants">参与者:</string>
+    <string name="event_fee">活动费用:</string>
+    <string name="event_remark">备注:</string>
 </resources>

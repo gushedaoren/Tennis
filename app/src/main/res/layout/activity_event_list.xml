@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="air.balloon.tennis.app.EventActivity">
+    >
+
+
 
 
     <fragment
@@ -11,7 +13,7 @@
         android:id="@+id/fragment1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:name="air.balloon.tennis.fragment.EventFragment"/>
+        android:name="air.balloon.tennis.fragment.EventListFragment"/>
 
 
 

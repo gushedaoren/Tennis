@@ -12,11 +12,15 @@ import com.umeng.fb.model.Conversation;
 import com.umeng.fb.model.DevReply;
 import com.umeng.fb.model.Reply;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.List;
 
 import air.balloon.tennis.db.MyDatabase;
 import air.balloon.tennis.dialog.MyDialog;
 import air.balloon.tennis.notify.FeedbackNotification;
+import umeng.fb.ConversationActivity;
 
 
 public class MainActivity extends ParentActivity implements View.OnClickListener{
@@ -59,6 +63,8 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
             @Override
             public void onReceiveDevReply(List<DevReply> devReplies) {
 
+                if(devReplies==null)return;
+
                 Log.LOG=true;
 
                 Log.a(TAG,"onReceiveDevReply");
@@ -67,23 +73,23 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
 
                if(devReplies.size()>=1){
 
-////                   String result=devReplies.get(0).toJson().toString();
-////                   Log.a(TAG,result);
-//
-//                   try {
-//                       JSONObject json=new JSONObject(result);
-//                       String content=json.optString("content");
-//
-//
-////                       Intent intent;
-////                       intent = new Intent(getApplicationContext(), ConversationActivity.class);
-////                       startActivity(intent);
-//
-//
-//
-//                   } catch (JSONException e) {
-//                       e.printStackTrace();
-//                   }
+                   String result=devReplies.get(0).toJson().toString();
+//                   Log.a(TAG,result);
+
+                   try {
+                       JSONObject json=new JSONObject(result);
+                       String content=json.optString("content");
+
+
+                       Intent intent;
+                       intent = new Intent(getApplicationContext(), ConversationActivity.class);
+                       startActivity(intent);
+
+
+
+                   } catch (JSONException e) {
+                       e.printStackTrace();
+                   }
 
 
                    new FeedbackNotification(MainActivity.this

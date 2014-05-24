@@ -12,23 +12,34 @@ import android.widget.ListView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
-import air.balloon.tennis.adapter.FriendAdapter;
-import air.balloon.tennis.app.FriendActivity;
+import air.balloon.tennis.adapter.EventAdapter;
+import air.balloon.tennis.app.CourtActivity;
+import air.balloon.tennis.app.EventActivity;
 import air.balloon.tennis.app.R;
-import air.balloon.tennis.model.TennisUser;
-import air.balloon.tennis.model.TennisUserDTO;
+import air.balloon.tennis.model.Event;
+import air.balloon.tennis.model.EventListDTO;
 import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
 
@@ -36,8 +47,8 @@ import air.balloon.tennis.value.API;
 /**
  * Created by oliver on 5/9/14.
  */
-public class FriendFragment extends MListFragment {
-    List<TennisUser> users;
+public class EventListFragment extends MListFragment {
+    List<Event> events;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +62,8 @@ public class FriendFragment extends MListFragment {
     @Override
     public void onStart() {
         super.onStart();
-        getFreinds();
+        getEvents();
+
     }
 
     @Override
@@ -68,19 +80,16 @@ public class FriendFragment extends MListFragment {
             }
         });
 
-
         pullToRefreshView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getActivity(), FriendActivity.class);
-                intent.putExtra("id",users.get(position-1).getId());
+                Intent intent=new Intent(getActivity(), EventActivity.class);
+                intent.putExtra("id", events.get(position - 1).getId());
                 startActivity(intent);
-
-
-
-
             }
         });
+
+
     }
 
     @Override
@@ -89,7 +98,7 @@ public class FriendFragment extends MListFragment {
         Log.i(
                 TAG,"onCreateView"
         );
-        return inflater.inflate(R.layout.fragment_friend_list,container,false);
+        return inflater.inflate(R.layout.fragment_event_list,container,false);
 
 
 
@@ -110,13 +119,13 @@ public class FriendFragment extends MListFragment {
 
             pullToRefreshView.onRefreshComplete();
             super.onPostExecute(result);
-            getFreinds();
+            getEvents();
         }
     }
-    public Object getFreinds() {
-        MyLog.print(TAG, "getFreinds");
+    public Object getEvents() {
+        MyLog.print(TAG, "getEvents");
 
-        String url= API.getFriendList("", 1);
+        String url= API.getEventList("",1);
         MyLog.print(TAG,url);
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, new AsyncHttpResponseHandler() {
@@ -133,23 +142,22 @@ public class FriendFragment extends MListFragment {
 
 
 
-                        Type type = new TypeToken<TennisUserDTO>() {}.getType();
+                        Type type = new TypeToken<EventListDTO>() {}.getType();
 
-                        TennisUserDTO dto=gson.fromJson(json,type);
+                        EventListDTO dto=gson.fromJson(json,type);
 
-                        users=dto.getUser_TennisUser_List();
+                        events=dto.getEvent_Event_List();
 
-                        MyLog.print(TAG,"size:"+users.size());
+                        MyLog.print(TAG,"size:"+events.size());
 
-                        for (Iterator iterator = users.iterator(); iterator.hasNext();) {
-                            TennisUser user = (TennisUser) iterator.next();
-                            MyLog.print(TAG,"friends:"+user.toString());
+                        for (Iterator iterator = events.iterator(); iterator.hasNext();) {
+                            Event event = (Event) iterator.next();
+                           // MyLog.print(TAG,"event:"+event.toString());
                         }
 
+                        if(events==null)return;
 
-                       if(users==null)return;
-
-                        FriendAdapter adapter=new FriendAdapter(getActivity().getBaseContext(),users);
+                        EventAdapter adapter=new EventAdapter(getActivity().getBaseContext(),events);
                         pullToRefreshView.setAdapter(adapter);
 
 

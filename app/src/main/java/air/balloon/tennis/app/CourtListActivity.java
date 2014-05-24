@@ -3,7 +3,7 @@ package air.balloon.tennis.app;
 import android.os.Bundle;
 
 
-public class CourtListActivity extends ParentActivity {
+public class CourtListActivity extends MListViewActivity {
 
 
     @Override

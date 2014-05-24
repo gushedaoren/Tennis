@@ -11,7 +11,7 @@
         android:id="@+id/fragment1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:name="air.balloon.tennis.fragment.FriendFragment"/>
+        android:name="air.balloon.tennis.fragment.FriendListFragment"/>
 
 
 

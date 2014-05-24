@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="air.balloon.tennis.app.CourtActivity">
+  >
 
     <fragment
         android:layout_alignParentTop="true"
         android:id="@+id/fragment1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:name="air.balloon.tennis.fragment.CourtFragment"/>
+        android:name="air.balloon.tennis.fragment.CourtListFragment"/>
 
 </RelativeLayout>

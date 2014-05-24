@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+
+
+import air.balloon.tennis.location.BDLocationTask;
+import air.balloon.tennis.service.MainService;
 
 
 public class SplashActivity extends ActionBarActivity {
@@ -14,6 +16,8 @@ public class SplashActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        startMainService();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -26,6 +30,15 @@ public class SplashActivity extends ActionBarActivity {
         },3000);
     }
 
+    private void startMainService() {
+        Intent intent=new Intent(this, MainService.class);
+        startService(intent);
+    }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
 }

@@ -61,4 +61,9 @@ public class API {
         return url;
     }
 
+    public static final String getEvent(long id){
+        String url=PRE_API+"event/"+id;
+        return url;
+    }
+
 }

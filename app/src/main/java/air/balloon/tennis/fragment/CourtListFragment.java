@@ -1,50 +1,51 @@
 package air.balloon.tennis.fragment;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.android.gms.common.api.Api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import air.balloon.tennis.adapter.CourtAdapter;
 import air.balloon.tennis.adapter.EventAdapter;
+import air.balloon.tennis.app.CourtActivity;
 import air.balloon.tennis.app.R;
+import air.balloon.tennis.model.Court;
+import air.balloon.tennis.model.CourtListDTO;
 import air.balloon.tennis.model.Event;
-import air.balloon.tennis.model.EventListDTO;
 import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
+import air.balloon.tennis.value.Config;
 
 
 /**
  * Created by oliver on 5/9/14.
  */
-public class EventFragment extends MListFragment {
-    List<Event> events;
+public class CourtListFragment extends MListFragment {
+
+    String keyword="";
+    int page=1;
+    List<Court> courts;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,11 +55,10 @@ public class EventFragment extends MListFragment {
 
     }
 
-
     @Override
     public void onStart() {
         super.onStart();
-        getEvents();
+        getCourts(keyword,page);
     }
 
     @Override
@@ -69,9 +69,19 @@ public class EventFragment extends MListFragment {
 
         pullToRefreshView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
-            public void onRefresh(PullToRefreshBase <ListView> refreshView) {
+            public void onRefresh(PullToRefreshBase<ListView> refreshView) {
                 // Do work to refresh the list here.
                 new GetDataTask().execute();
+            }
+        });
+
+
+        pullToRefreshView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(), CourtActivity.class);
+                intent.putExtra("id",courts.get(position-1).getId());
+                startActivity(intent);
             }
         });
     }
@@ -82,7 +92,7 @@ public class EventFragment extends MListFragment {
         Log.i(
                 TAG,"onCreateView"
         );
-        return inflater.inflate(R.layout.fragment_event_list,container,false);
+        return inflater.inflate(R.layout.fragment_court_list,container,false);
 
 
 
@@ -103,15 +113,15 @@ public class EventFragment extends MListFragment {
 
             pullToRefreshView.onRefreshComplete();
             super.onPostExecute(result);
-            getEvents();
+            getCourts(keyword,page);
         }
     }
-    public Object getEvents() {
-        MyLog.print(TAG, "getEvents");
+    public Object getCourts(String keyword,int page) {
+        MyLog.print(TAG, "getCourts");
+        String url= API.getCourtList(keyword,page);
 
-        String url= API.getEventList("",1);
-        MyLog.print(TAG,url);
-        AsyncHttpClient client = new AsyncHttpClient();
+        Log.i(TAG,url);
+        AsyncHttpClient client = new AsyncHttpClient(Config.HTTP_PORT);
         client.get(url, new AsyncHttpResponseHandler() {
 
 
@@ -120,30 +130,28 @@ public class EventFragment extends MListFragment {
                 super.onSuccess(statusCode, headers, responseBody);
                 String json=new String(responseBody);
 
-
+                Log.i(TAG,json.toString());
                 Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
                         .create();
 
+                Type listType = new TypeToken<CourtListDTO>(){}.getType();
 
 
-                        Type type = new TypeToken<EventListDTO>() {}.getType();
+                CourtListDTO dto=gson.fromJson(json,listType);
 
-                        EventListDTO dto=gson.fromJson(json,type);
+                courts=dto.getCourt_Court_List();
 
-                        events=dto.getEvent_Event_List();
+                MyLog.print(TAG,"size:"+courts.size());
 
-                        MyLog.print(TAG,"size:"+events.size());
+                for (Iterator iterator =courts.iterator(); iterator.hasNext();) {
+                    Court court = (Court) iterator.next();
+                    MyLog.print(TAG, "court:" + court.toString());
+                }
 
-                        for (Iterator iterator = events.iterator(); iterator.hasNext();) {
-                            Event event = (Event) iterator.next();
-                            MyLog.print(TAG,"event:"+event.toString());
-                        }
 
-                        if(events==null)return;
 
-                        EventAdapter adapter=new EventAdapter(getActivity().getBaseContext(),events);
-                        pullToRefreshView.setAdapter(adapter);
-
+                CourtAdapter adapter=new CourtAdapter(getActivity().getBaseContext(),courts);
+                pullToRefreshView.setAdapter(adapter);
 
 
 

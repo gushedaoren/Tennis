@@ -28,25 +28,7 @@ public class EventAdapter extends BaseAdapter {
     }
 
 
-    @Override
-    public boolean areAllItemsEnabled() {
-        return false;
-    }
 
-    @Override
-    public boolean isEnabled(int position) {
-        return false;
-    }
-
-    @Override
-    public void registerDataSetObserver(DataSetObserver observer) {
-
-    }
-
-    @Override
-    public void unregisterDataSetObserver(DataSetObserver observer) {
-
-    }
 
     @Override
     public int getCount() {
@@ -55,18 +37,15 @@ public class EventAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return events.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return events.get(position).getId();
     }
 
-    @Override
-    public boolean hasStableIds() {
-        return false;
-    }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -96,20 +75,9 @@ public class EventAdapter extends BaseAdapter {
         return convertView;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return 0;
-    }
 
-    @Override
-    public int getViewTypeCount() {
-        return events.size();
-    }
 
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
+
 
    class Holder {
 
