@@ -43,5 +43,8 @@
     <string name="exit_dialog_message">亲，真得要退出吗?</string>
     <string name="share_content">亲，喜欢运动吗？这里有一款运动</string>
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="city">城市</string>
+    <string name="hot_city">热门城市</string>
+    <string name="hot">热</string>
 
 </resources>

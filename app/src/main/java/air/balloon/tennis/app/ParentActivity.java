@@ -4,7 +4,9 @@ package air.balloon.tennis.app;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -31,7 +33,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import air.balloon.tennis.app.R;
+import air.balloon.tennis.dialog.MyDialog;
 import air.balloon.tennis.utils.MyLog;
+import air.balloon.tennis.value.Preference;
 
 public class ParentActivity extends FragmentActivity{
 
@@ -41,12 +45,14 @@ public class ParentActivity extends FragmentActivity{
     View actionTitleView;
 
     public ActionBar actionBar;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initActionBar();
         activities.add(this);
+        sp=getSharedPreferences(Preference.SP, Context.MODE_PRIVATE);
         setContentView(R.layout.activity_base);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         TAG=getLocalClassName();
@@ -170,9 +176,11 @@ public class ParentActivity extends FragmentActivity{
         // Get the provider and hold onto it to set/change the share intent.
         mShareActionProvider = (ShareActionProvider) menuItem.getActionProvider();
 
-       doShare();
+         doShare();
 
+        MenuItem itemCity=menu.findItem(R.id.mene_change_city);
 
+        itemCity.setTitle(sp.getString("city",getString(R.string.city)));
 
         return true;
     }
@@ -196,14 +204,9 @@ public class ParentActivity extends FragmentActivity{
             this.finish();
         }
 
-
-//        if(id==R.id.menu_item_share){
-//            MyLog.print(TAG,"do share");
-//            doShare();
-//
-//        }
-
-
+        if(id==R.id.mene_change_city){
+            new MyDialog(this).showChangeCityDialog();
+        }
 
 
 

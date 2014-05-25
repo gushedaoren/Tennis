@@ -14,8 +14,25 @@ public class BaseCity {
     /** 城市类型 */
     private String cityType;
 
+    private String firsrLetter;
+    private boolean isHot;
 
-	
+    public String getFirsrLetter() {
+        return firsrLetter;
+    }
+
+    public boolean isHot() {
+        return isHot;
+    }
+
+    public void setHot(boolean isHot) {
+        this.isHot = isHot;
+    }
+
+    public void setFirsrLetter(String firsrLetter) {
+        this.firsrLetter = firsrLetter;
+    }
+
     /** get  */
     public long getId(){
     	return this.id;

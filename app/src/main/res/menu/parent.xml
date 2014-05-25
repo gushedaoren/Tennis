@@ -13,5 +13,12 @@
         android:actionProviderClass="android.widget.ShareActionProvider"
         />
 
+    <item android:id="@+id/mene_change_city"
+        android:title="@string/city"
+        android:showAsAction="ifRoom|withText"
+
+
+        />
+
 
 </menu>

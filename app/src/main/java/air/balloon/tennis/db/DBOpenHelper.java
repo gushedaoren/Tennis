@@ -43,7 +43,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     }
 
     private void createDatabase(SQLiteDatabase db) {
-         String[] sqls=readFile();
+         String[] sqls=readFile(R.raw.city);
 
         MyLog.print(TAG,"sql length:"+sqls.length);
         for(int i=0;i<sqls.length-1;i++){
@@ -53,15 +53,13 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         }
 
 
-
-
     }
 
 
 
 
 
-    private String[] readFile() {
+    private String[] readFile(int rawid) {
 
         String[] sqls=null;
         String result="";
@@ -70,7 +68,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
 
 
-            InputStream is = context.getResources().openRawResource(R.raw.schema_sqlite);
+            InputStream is = context.getResources().openRawResource(rawid);
             int size = is.available();
 
 
