@@ -10,6 +10,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import org.apache.http.Header;
 
 import air.balloon.tennis.model.Court;
+import air.balloon.tennis.model.CourtDTO;
 import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
 
@@ -65,7 +66,8 @@ public class CourtActivity extends ParentActivity {
 
                 Gson gson=new Gson();
 
-                court=gson.fromJson(result,Court.class);
+                CourtDTO courtDTO=gson.fromJson(result,CourtDTO.class);
+                court=courtDTO.getCourt_Court_Model();
 
                 txt1.setText(court.getTitle());
                 txt2.setText(court.getCourtDesc());

@@ -147,7 +147,7 @@ public class FriendListFragment extends MListFragment {
                         }
 
 
-                       if(users==null)return;
+                         if(users==null)return;
 
                         FriendAdapter adapter=new FriendAdapter(getActivity().getBaseContext(),users);
                         pullToRefreshView.setAdapter(adapter);

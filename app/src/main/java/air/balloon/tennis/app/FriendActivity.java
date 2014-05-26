@@ -14,6 +14,9 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import org.apache.http.Header;
 
 import air.balloon.tennis.model.TennisUser;
+import air.balloon.tennis.model.TennisUserDTO;
+import air.balloon.tennis.model.TennisUserDetail;
+import air.balloon.tennis.model.TennisUserDetailDTO;
 import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
 
@@ -24,7 +27,7 @@ public class FriendActivity extends ParentActivity {
 
     long id;
 
-    TennisUser user;
+    TennisUserDetail user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +73,9 @@ public class FriendActivity extends ParentActivity {
                 MyLog.print(TAG,result);
 
                 Gson gson=new Gson();
-                user=gson.fromJson(result,TennisUser.class);
+
+                TennisUserDetailDTO tennisUserDTO=gson.fromJson(result,TennisUserDetailDTO.class);
+                user=tennisUserDTO.getTennisUser_TennisUser_Model();
 
                 txt1.setText(user.getName());
                 txt2.setText(user.getRoles());

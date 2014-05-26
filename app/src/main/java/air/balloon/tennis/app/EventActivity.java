@@ -10,6 +10,8 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import org.apache.http.Header;
 
 import air.balloon.tennis.model.Event;
+import air.balloon.tennis.model.EventDTO;
+import air.balloon.tennis.model.EventListDTO;
 import air.balloon.tennis.model.TennisUser;
 import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
@@ -49,7 +51,9 @@ public class EventActivity extends ParentActivity {
                 MyLog.print(TAG,result);
 
                 Gson gson=new Gson();
-                event=gson.fromJson(result,Event.class);
+
+                EventDTO eventDTO=gson.fromJson(result,EventDTO.class);
+                event=eventDTO.getEvent_Event_Model();
 
                 txt1.setText(event.getTitle());
                 txt2.setText(event.getDescrition());

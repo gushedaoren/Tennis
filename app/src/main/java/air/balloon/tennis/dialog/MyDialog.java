@@ -140,8 +140,6 @@ public class MyDialog {
 
 
 
-
-
     }
 
     private List<BaseCity> getCitys(String keyWord) {
