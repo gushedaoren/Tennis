@@ -6,6 +6,18 @@
 
 
 
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editText"
+            android:hint="@string/hint_search_city"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+
     <indexable.IndexableListView
         android:id="@+id/listView"
         android:layout_width="fill_parent"

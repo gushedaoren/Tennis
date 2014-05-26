@@ -15,6 +15,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.internal.view.menu.MenuBuilder;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -33,6 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import air.balloon.tennis.app.R;
+import air.balloon.tennis.db.MyDatabase;
 import air.balloon.tennis.dialog.MyDialog;
 import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.Preference;
@@ -51,6 +53,7 @@ public class ParentActivity extends FragmentActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initActionBar();
+        db= MyDatabase.getInstance(this);
         activities.add(this);
         sp=getSharedPreferences(Preference.SP, Context.MODE_PRIVATE);
         setContentView(R.layout.activity_base);
@@ -59,6 +62,12 @@ public class ParentActivity extends FragmentActivity{
 
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        MyLog.print(TAG,"onStart");
     }
 
 
@@ -112,7 +121,7 @@ public class ParentActivity extends FragmentActivity{
         super.onResume();
       //  TALogger.i(this,this.getCallingActivity()+" on resume");
 
-
+        invalidateOptionsMenu();
         MobclickAgent.onPageStart(String.valueOf(this.getComponentName())); //统计页面
         MobclickAgent.onResume(this);    //统计时长
 
@@ -181,9 +190,24 @@ public class ParentActivity extends FragmentActivity{
         MenuItem itemCity=menu.findItem(R.id.mene_change_city);
 
         itemCity.setTitle(sp.getString("city",getString(R.string.city)));
-
         return true;
     }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public void invalidateOptionsMenu() {
+
+
+        super.invalidateOptionsMenu();
+    }
+
+
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
