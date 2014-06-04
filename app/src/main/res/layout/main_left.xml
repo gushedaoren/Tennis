@@ -5,58 +5,102 @@
     android:layout_height="match_parent">
 
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/btn_left1"
         android:layout_width="fill_parent"
-        android:background="@color/red"
-        android:gravity="center"
-        android:clickable="true"
-        android:layout_height="150dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <ImageView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="找活动"
-            android:textSize="35sp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/main_left1_bg_selector"
+
             />
 
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        </LinearLayout>
+            <TextView
+                android:layout_alignParentStart="true"
+                android:layout_margin="10dp"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:text="@string/title_activity_event_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-    <LinearLayout
+
+            </RelativeLayout>
+        </FrameLayout>
+
+
+
+    <FrameLayout
         android:id="@+id/btn_left2"
         android:layout_width="fill_parent"
-        android:background="@color/orange"
-        android:gravity="center"
-        android:clickable="true"
-        android:layout_height="150dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <ImageView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="找球场"
-            android:textSize="35sp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/main_left2_bg_selector"
+
             />
 
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-    </LinearLayout>
+            <TextView
+                android:layout_alignParentStart="true"
+                android:layout_margin="10dp"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:text="@string/title_activity_court_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-    <LinearLayout
+
+        </RelativeLayout>
+    </FrameLayout>
+
+
+
+
+    <FrameLayout
         android:id="@+id/btn_left3"
         android:layout_width="fill_parent"
-        android:background="@color/green"
-        android:gravity="center"
-        android:clickable="true"
-        android:layout_height="120dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <ImageView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="我的好友"
-            android:textSize="35sp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/main_left3_bg_selector"
+
             />
 
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-    </LinearLayout>
+            <TextView
+                android:layout_alignParentStart="true"
+                android:layout_margin="10dp"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:text="@string/title_activity_friend_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+    </FrameLayout>
 
 </LinearLayout>

@@ -23,6 +23,13 @@ android {
             keyPassword "zaq123456"
         }
     }
+
+
+
+
+
+    /*
+
     buildTypes {
 
         test {
@@ -44,6 +51,9 @@ android {
         }
 
     }
+
+
+     */
 
     android.applicationVariants.all { variant ->
         variant.processManifest.doLast {
@@ -84,6 +94,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.+'
     compile files('libs/locSDK_4.1.jar')
     compile files('libs/pinyin-2.0.1.jar')
+    compile 'org.cryptonode.jncryptor:jncryptor:1.0.1'
 }
 
 

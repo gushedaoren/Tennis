@@ -139,15 +139,7 @@ public class ParentActivity extends FragmentActivity{
         MobclickAgent.onPause(this);
     }
 
-   public void titleBarAction(){
-       LinearLayout btnBack= (LinearLayout) findViewById(R.id.btn_back);
-       btnBack.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               finish();
-           }
-       });
-   }
+
 
     public void printChanel(){
 
@@ -182,6 +174,7 @@ public class ParentActivity extends FragmentActivity{
         getMenuInflater().inflate(R.menu.parent, menu);
 
         MenuItem menuItem = menu.findItem(R.id.menu_item_share);
+
         // Get the provider and hold onto it to set/change the share intent.
         mShareActionProvider = (ShareActionProvider) menuItem.getActionProvider();
 
@@ -243,7 +236,7 @@ public class ParentActivity extends FragmentActivity{
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "Whatever message you want to share");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_content));
         shareIntent.putExtra(Intent.EXTRA_SUBJECT,"title");
 
       //  startActivity(shareIntent);

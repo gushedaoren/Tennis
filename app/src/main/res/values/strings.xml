@@ -12,7 +12,7 @@
     <string name="prompt_password">密码</string>
     <string name="confirm_password">确认密码</string>
     <string name="KeepPassword">记住密码</string>
-    <string name="freeSignup">免费注册</string>
+    <string name="freeSignup">免费注册>></string>
     <string name="title_activity_register">Register</string>
     <string name="register">注册</string>
     <string name="man">先生</string>
@@ -38,15 +38,18 @@
     <string name="title_activity_court">球场信息</string>
     <string name="title_activity_event">活动信息</string>
     <string name="title_activity_conversation">用户反馈</string>
+    <string name="title_activity_publish_event">发起活动</string>
+    <string name="personal_page">个人中心</string>
     <string name="OK">确定</string>
     <string name="Cancel">取消</string>
     <string name="exit_dialog_message">亲，真得要退出吗?</string>
-    <string name="share_content">亲，喜欢运动吗？这里有一款运动</string>
+    <string name="share_content">爱运动的小伙伴们看过来，快来下载爱运动@网球，关注我们的微信公众账号:FreeTeam,后期将推出其他运动APP。</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="city">城市</string>
     <string name="hot_city">热门城市</string>
     <string name="hot">热</string>
     <string name="hint_search_city">搜索城市</string>
+
 
 
 </resources>

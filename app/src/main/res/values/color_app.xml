@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <color name="theme">#006000</color>
+    <color name="theme">#40A96C</color>
 
+
+    <color name="theme2">#E0EFDD</color>
     <color name="activity_bg">@color/white</color>
 
     <color name="text_color">@color/white</color>
 
+    <color name="theme3">@color/white</color>
 
 
 </resources>

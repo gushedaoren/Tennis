@@ -11,7 +11,7 @@ import umeng.fb.ConversationActivity;
 public class MoreActivity extends ParentActivity implements View.OnClickListener{
 
 
-    LinearLayout btnFeedBack;
+    LinearLayout btnMore1,btnMore2,btnMore4,btnMore5,btnMore6,btnMore3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +25,20 @@ public class MoreActivity extends ParentActivity implements View.OnClickListener
 
 
     private void init() {
-        btnFeedBack= (LinearLayout) findViewById(R.id.btn_feedback);
+        btnMore6= (LinearLayout) findViewById(R.id.btn_more6);
+        btnMore5= (LinearLayout) findViewById(R.id.btn_more5);
+        btnMore4= (LinearLayout) findViewById(R.id.btn_more4);
+        btnMore3= (LinearLayout) findViewById(R.id.btn_more3);
+        btnMore2= (LinearLayout) findViewById(R.id.btn_more2);
+        btnMore1= (LinearLayout) findViewById(R.id.btn_more1);
 
-        btnFeedBack.setOnClickListener(this);
+        btnMore6.setOnClickListener(this);
+        btnMore5.setOnClickListener(this);
+        btnMore4.setOnClickListener(this);
+        btnMore3.setOnClickListener(this);
+        btnMore2.setOnClickListener(this);
+        btnMore1.setOnClickListener(this);
+
 
     }
 
@@ -36,7 +47,7 @@ public class MoreActivity extends ParentActivity implements View.OnClickListener
 
         Intent intent=new Intent();
         switch (v.getId()){
-            case R.id.btn_feedback:
+            case R.id.btn_more6:
 
 //                FeedbackAgent agent = new FeedbackAgent(MoreActivity.this);
 //
@@ -46,6 +57,18 @@ public class MoreActivity extends ParentActivity implements View.OnClickListener
                 );
                 startActivity(intent);
 
+                break;
+
+            case R.id.btn_more5:
+
+                intent.setClass(MoreActivity.this,RegisterActivity.class);
+                startActivity(intent);
+             break;
+
+            case R.id.btn_more4:
+
+                intent.setClass(MoreActivity.this,LoginActivity.class);
+                startActivity(intent);
                 break;
 
         }

@@ -50,8 +50,20 @@
                 <EditText
                     android:id="@+id/user"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:hint="@string/prompt_user"
+
+                    android:paddingLeft="15dp"
+
+                    android:background="@drawable/edit_bg"
+
+
+                    android:drawableRight="@drawable/ic_login_user"
+
+
+                    android:paddingEnd="5dp"
+
+
 
 
                     android:inputType="textPhonetic"
@@ -61,22 +73,32 @@
 
 
                 <EditText
+                    android:layout_marginTop="5dp"
                     android:id="@+id/password"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="15dp"
                     android:hint="@string/prompt_password"
 
+
+                    android:paddingEnd="5dp"
+
+                    android:drawableEnd="@drawable/ic_login_password"
+
+                    android:background="@drawable/edit_bg"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"/>
 
                 <Button
                     android:id="@+id/sign_in_button"
-                    style="?android:textAppearanceSmall"
+
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginTop="16dp"
                     android:text="登陆"
+                    android:gravity="center"
+                    android:background="@color/theme3"
                     android:textColor="@color/theme"
                     android:textStyle="bold"/>
 
@@ -84,6 +106,7 @@
 
 
             <RelativeLayout
+                android:layout_marginTop="5dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 

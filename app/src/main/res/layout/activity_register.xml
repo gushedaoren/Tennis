@@ -2,12 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whitesmoke"
+
     tools:context="air.balloon.tennis.app.RegisterActivity">
 
 
     <LinearLayout
         android:id="@+id/layout_titleBar"
+        android:visibility="gone"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
         <include layout="@layout/title_bar"></include>
@@ -36,6 +37,10 @@
                 android:layout_marginTop="40dp"
                 android:hint="@string/prompt_register_user"
 
+                android:drawableEnd="@drawable/ic_login_user"
+
+                android:paddingEnd="5dp"
+                android:paddingLeft="15dp"
                 android:layout_width="fill_parent"
                 android:layout_height="50dip" />
 
@@ -56,10 +61,11 @@
 
                 <EditText
                     android:id="@+id/edit_password1"
+                    android:paddingLeft="15dp"
                     android:layout_marginLeft="10dp"
                     android:inputType="textVisiblePassword"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="50dp" />
                 </LinearLayout>
 
 
@@ -79,10 +85,11 @@
 
             <EditText
                 android:id="@+id/edit_password2"
+                android:paddingLeft="15dp"
                 android:layout_marginLeft="10dp"
                 android:inputType="textVisiblePassword"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="50dp" />
         </LinearLayout>
 
 

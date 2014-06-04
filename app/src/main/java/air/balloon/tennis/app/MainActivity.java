@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -28,7 +29,7 @@ import umeng.fb.ConversationActivity;
 public class MainActivity extends ParentActivity implements View.OnClickListener{
 
 
-    LinearLayout btnLeft1,btnLeft2,btnLeft3,btnRight1,btnRight2,btnRight3;
+    FrameLayout btnLeft1,btnLeft2,btnLeft3,btnRight1,btnRight2,btnRight3;
 
 
 
@@ -63,7 +64,7 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+        if(keyCode == KeyEvent.KEYCODE_BACK ){
             if((System.currentTimeMillis()-exitTime) > 2000){
                 Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
@@ -132,17 +133,17 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
 
     private void findViews(){
 
-        btnLeft1= (LinearLayout) findViewById(R.id.btn_left1);
+        btnLeft1= (FrameLayout) findViewById(R.id.btn_left1);
 
-        btnLeft2=(LinearLayout) findViewById(R.id.btn_left2);
+        btnLeft2=(FrameLayout) findViewById(R.id.btn_left2);
 
-        btnLeft3=(LinearLayout) findViewById(R.id.btn_left3);
+        btnLeft3=(FrameLayout) findViewById(R.id.btn_left3);
 
-        btnRight1=(LinearLayout) findViewById(R.id.btn_right1);
+        btnRight1=(FrameLayout) findViewById(R.id.btn_right1);
 
-        btnRight2=(LinearLayout) findViewById(R.id.btn_right2);
+        btnRight2=(FrameLayout) findViewById(R.id.btn_right2);
 
-        btnRight3=(LinearLayout) findViewById(R.id.btn_right3);
+        btnRight3=(FrameLayout) findViewById(R.id.btn_right3);
 
 
         btnLeft1.setOnClickListener(this);
