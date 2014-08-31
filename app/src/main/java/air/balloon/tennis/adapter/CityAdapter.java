@@ -9,10 +9,11 @@ import android.widget.ImageView;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
-import com.urlshow.pinyin.PinYin;
+
 
 import java.util.HashMap;
 import java.util.List;
+
 
 import air.balloon.tennis.app.R;
 import air.balloon.tennis.model.BaseCity;

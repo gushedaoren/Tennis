@@ -4,6 +4,8 @@
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.cryptonode.jncryptor/jncryptor/1.0.1/4da345b4b1955480afba09e31e6c56cea3e6cd3/jncryptor-1.0.1.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.cryptonode.jncryptor/jncryptor/1.0.1/18db251896ba838dec2cb0663061e7d5698dd003/jncryptor-1.0.1-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

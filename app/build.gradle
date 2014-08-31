@@ -1,33 +1,22 @@
 apply plugin: 'android'
 
 android {
-
-
     compileSdkVersion 19
-    buildToolsVersion '19.0.3'
-
-
-
+    buildToolsVersion '20.0.0'
     signingConfigs {
-
         debug {
-            storeFile file("/Users/oliver/Dropbox/freeTeam/androidkey")
-            storePassword "zaq123456"
-            keyAlias "gushedaoren"
-            keyPassword "zaq123456"
+            storeFile file('/Users/oliver/Develop/android_sign_key')
+            storePassword 'zaq123456'
+            keyAlias 'gushedaoren'
+            keyPassword 'zaq123456'
         }
         myConfig {
-            storeFile file("/Users/oliver/Dropbox/freeTeam/androidkey")
-            storePassword "zaq123456"
-            keyAlias "gushedaoren"
-            keyPassword "zaq123456"
+            storeFile file('/Users/oliver/Dropbox/freeTeam/androidkey')
+            storePassword 'zaq123456'
+            keyAlias 'gushedaoren'
+            keyPassword 'zaq123456'
         }
     }
-
-
-
-
-
     /*
 
     buildTypes {
@@ -54,7 +43,6 @@ android {
 
 
      */
-
     android.applicationVariants.all { variant ->
         variant.processManifest.doLast {
             copy {
@@ -70,15 +58,19 @@ android {
             }
         }
     }
-
     lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,
         // but continue the build even when errors are found:
         abortOnError false
     }
-
+    defaultConfig {}
+    productFlavors {
+    }
+    buildTypes {
+    }
 }
+
 
 
 
@@ -87,14 +79,13 @@ dependencies {
     compile files('libs/umeng_sdk.jar')
     compile files('libs/android-async-http-1.4.4.jar')
     compile project(':pulltorefresh')
-    compile 'com.android.support:appcompat-v7:19.+'
-    compile 'com.android.support:gridlayout-v7:+'
-    compile 'com.google.android.gms:play-services:4.2.42'
-    compile 'com.android.support:support-v4:19.+'
     compile 'com.google.code.gson:gson:2.2.+'
     compile files('libs/locSDK_4.1.jar')
     compile files('libs/pinyin-2.0.1.jar')
     compile 'org.cryptonode.jncryptor:jncryptor:1.0.1'
+    compile files('libs/commons-compress-1.8.1.jar')
+    compile 'com.android.support:appcompat-v7:20.0.0'
+    compile 'com.android.support:support-v4:20.0.0'
 }
 
 
