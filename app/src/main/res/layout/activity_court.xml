@@ -30,12 +30,15 @@
 
 
          <LinearLayout
+
              android:layout_width="fill_parent"
              android:layout_height="wrap_content">
 
 
              <TextView
                  android:id="@+id/txt1"
+                 android:textSize="18sp"
+                 android:textStyle="bold"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content" />
              </LinearLayout>
@@ -43,6 +46,7 @@
 
 
             <LinearLayout
+                android:paddingLeft="10dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
@@ -88,6 +92,7 @@
 
                 <TextView
                     android:id="@+id/txt4"
+                    android:autoLink="phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>

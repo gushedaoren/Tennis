@@ -41,7 +41,7 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
 
 
         setContentView(R.layout.activity_main);
-        db= MyDatabase.getInstance(this);
+
         printChanel();
 
 

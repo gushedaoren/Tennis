@@ -21,6 +21,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -46,6 +47,7 @@ public class CourtListFragment extends MListFragment {
     String keyword="";
     int page=1;
     List<Court> courts;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +60,17 @@ public class CourtListFragment extends MListFragment {
     @Override
     public void onStart() {
         super.onStart();
-        getCourts(9,page);
+
+
+
+        getCourts(cityid,page);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
     }
 
     @Override
@@ -66,6 +78,13 @@ public class CourtListFragment extends MListFragment {
         super.onActivityCreated(savedInstanceState);
         pullToRefreshView = (PullToRefreshListView) getView().findViewById(R.id.pull_to_refresh_listview);
 
+
+        pullToRefreshView.setOnPullEventListener(new PullToRefreshBase.OnPullEventListener<ListView>() {
+            @Override
+            public void onPullEvent(PullToRefreshBase<ListView> refreshView, PullToRefreshBase.State state, PullToRefreshBase.Mode direction) {
+
+            }
+        });
 
         pullToRefreshView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
@@ -80,10 +99,14 @@ public class CourtListFragment extends MListFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(getActivity(), CourtActivity.class);
-                intent.putExtra("id",courts.get(position-1).getId());
+
+                intent.putExtra("court", (Serializable) courts.get(position-1));
                 startActivity(intent);
             }
         });
+
+        View footerView=LayoutInflater.from(getActivity()).inflate(R.layout.footer_view,null);
+        pullToRefreshView.getRefreshableView().addFooterView(footerView);
     }
 
     @Override
@@ -113,12 +136,26 @@ public class CourtListFragment extends MListFragment {
 
             pullToRefreshView.onRefreshComplete();
             super.onPostExecute(result);
-            getCourts(9 ,1);
+            getCourts(cityid ,page);
         }
     }
     public Object getCourts(int cityid,int page) {
+        cityid=sp.getInt("cityid",73);
         MyLog.print(TAG, "getCourts");
-        String url= API.getMunicipalityCourtList(cityid,page);
+
+        String url=API.getMunicipalityCourtList(9,page);
+        switch (cityid){
+            case 73:
+                url=API.getMunicipalityCourtList(9,page);
+                break;
+
+            default:
+                url=API.getCourtList(cityid,page);
+                break;
+
+        }
+
+
 
         Log.i(TAG,url);
         AsyncHttpClient client = new AsyncHttpClient(Config.HTTP_PORT);
@@ -152,6 +189,8 @@ public class CourtListFragment extends MListFragment {
 
                 CourtAdapter adapter=new CourtAdapter(getActivity().getBaseContext(),courts);
                 pullToRefreshView.setAdapter(adapter);
+
+
 
 
 

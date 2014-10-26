@@ -1,14 +1,16 @@
 package air.balloon.tennis.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author gen code 
  *
  */
-public class BaseCity {
+public class BaseCity implements Serializable {
 	
     /**  */
-    private long id;
+    private int id;
     /** 城市名称 */
     private String cityName;
     /** 城市类型 */
@@ -36,14 +38,11 @@ public class BaseCity {
     }
 
     /** get  */
-    public long getId(){
+    public int getId(){
     	return this.id;
     }
 
-    /** set  */
-    public void setId(long id){
-    	this.id = id;
-    }
+
     
     /** get 城市名称 */
     public String getCityName(){
@@ -64,9 +63,11 @@ public class BaseCity {
     public void setCityType(String cityType){
     	this.cityType = cityType;
     }
-    
 
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String toString(){
 		return "BaseCity{" + 

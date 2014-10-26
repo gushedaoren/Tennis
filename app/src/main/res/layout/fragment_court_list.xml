@@ -10,6 +10,7 @@
         android:id="@+id/layout_bottom_btns"
         android:layout_alignParentBottom="true"
         android:layout_width="fill_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content">
 
         <include layout="@layout/court_bottom_btns"/>

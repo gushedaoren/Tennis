@@ -132,6 +132,7 @@ public class MyDialog {
                 BaseCity city=citys.get(position);
                 MyLog.print(TAG,"city:"+city.getCityName());
                 sp.edit().putString("city",city.getCityName()).commit();
+                sp.edit().putInt("cityid",city.getId()).commit();
                 dialog.dismiss();
                 ((Activity)context).invalidateOptionsMenu();
             }
@@ -151,9 +152,9 @@ public class MyDialog {
 
         while(cursor.moveToNext()){
             BaseCity city=new BaseCity();
-            city.setId(cursor.getLong(cursor.getColumnIndexOrThrow("id")));
+            city.setId(cursor.getInt(cursor.getColumnIndexOrThrow("id")));
             city.setCityName(cursor.getString(cursor.getColumnIndexOrThrow("cityName")));
-            city.setTitle_pinyin(cursor.getString(cursor.getColumnIndexOrThrow("title_pinyin")));
+            city.setTitle_pinyin(cursor.getString(cursor.getColumnIndexOrThrow("title_pinyin")).substring(0,1));
 //            int hot=cursor.getInt(cursor.getColumnIndexOrThrow("isHot"));
 //            if(hot==1){
 //                city.setHot(true);

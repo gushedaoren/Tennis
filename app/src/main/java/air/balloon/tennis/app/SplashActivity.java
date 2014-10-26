@@ -6,17 +6,19 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 
 
+import air.balloon.tennis.db.MyDatabase;
 import air.balloon.tennis.location.BDLocationTask;
 import air.balloon.tennis.service.MainService;
 
 
 public class SplashActivity extends ActionBarActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
+        MyDatabase.getInstance(this);
         startMainService();
 
         new Handler().postDelayed(new Runnable() {

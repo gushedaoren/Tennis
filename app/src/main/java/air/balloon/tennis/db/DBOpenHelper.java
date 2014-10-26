@@ -45,7 +45,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         MyLog.print(TAG, "onCreate");
-        copyDatabase();
+        CopyAndLoadDB();
 
     }
 
@@ -54,43 +54,35 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
 
 
-    public void copyDatabase(){
+    // 复制和加载区域数据库中的数据
+    private void CopyAndLoadDB() {
+        // 打开静态数据库文件的输入流
 
-
-        // Open your local db as the input stream
-        InputStream myInput = context.getResources()
-                .openRawResource(R.raw.tennis);
-        // Path to the just created empty db
-        String outFileName = "/data/data/"+context.getPackageName()+"/"+databaseName;
-        Log.i(getClass().getSimpleName(),"copyDatabase:"+outFileName );
-
-
-        // Open the empty db as the output stream
-        OutputStream myOutput = null;
+        String dPath="/data/data/"+context.getPackageName()+"/databases/"+databaseName;
+        File file=new File(dPath);
+        if(file.exists()){
+            file.delete();
+        }
+        InputStream is = context.getResources().openRawResource(R.raw.tennis);
+        // 通过Context类来打开目标数据库文件的输出流，这样可以避免将路径写死。
+        FileOutputStream os;
         try {
-
-            File file=new File(outFileName);
-            if(file.exists())file.delete();
-
-            myOutput = new FileOutputStream(outFileName);
-
-            // transfer bytes from the inputfile to the outputfile
+            os = new FileOutputStream(dPath);
             byte[] buffer = new byte[1024];
-            int length;
-            while ((length = myInput.read(buffer)) > 0) {
-                myOutput.write(buffer, 0, length);
+            int count = 0;
+            // 将静态数据库文件拷贝到目的地
+            while ((count = is.read(buffer)) > 0) {
+                os.write(buffer, 0, count);
             }
-            // Close the streams
-            myOutput.flush();
-            myOutput.close();
-            myInput.close();
-
+            is.close();
+            os.close();
         } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
 
 
     }

@@ -8,7 +8,8 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="20" />
 
-
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
 
     <!-- 这个权限用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>

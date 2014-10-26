@@ -1,11 +1,21 @@
 package air.balloon.tennis.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 /**
  *
  * @author gen code 
  *
  */
-public class Court {
+public class Court implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 	
     /**  */
     private long id;
@@ -171,4 +181,6 @@ public class Court {
                 ", district_model=" + district_model +
                 '}';
     }
+
+
 }

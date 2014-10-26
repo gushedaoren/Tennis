@@ -1,6 +1,7 @@
 package air.balloon.tennis.app;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -40,44 +41,19 @@ public class CourtActivity extends ParentActivity {
         txt4= (TextView) findViewById(R.id.txt4);
         txt5= (TextView) findViewById(R.id.txt5);
         txt6= (TextView) findViewById(R.id.txt6);
-        id=getIntent().getLongExtra("id",0);
-
-        if(id!=0){
-            initData(id);
-        }
+        initData();
 
     }
 
-    private void initData(long id) {
-
-        AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
-        String url= API.getCourt(id);
-
-        MyLog.print(TAG, url);
-
-        asyncHttpClient.get(url,new AsyncHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                super.onSuccess(statusCode, headers, responseBody);
+    private void initData() {
 
 
-                String result=new String(responseBody);
-                MyLog.print(TAG,result);
-
-                Gson gson=new Gson();
-
-                CourtDTO courtDTO=gson.fromJson(result,CourtDTO.class);
-                court=courtDTO.getCourt_Court_Model();
-
+                court= (Court) getIntent().getSerializableExtra("court");
                 txt1.setText(court.getTitle());
-                txt2.setText(court.getDescription());
+                txt2.setText(Html.fromHtml(court.getDescription()));
                 txt3.setText(court.getAddress());
                 txt4.setText(court.getPhone());
                 txt5.setText(court.getCourt_number());
 
-
-
-            }
-        });
     }
 }
