@@ -15,26 +15,34 @@ public class Court {
     private String address;
     /** 联系电话 */
     private String phone;
-    /** 开始时间 */
-    private String startTime;
-    /** 结束时间 */
-    private String endTime;
-    /** 收费标准 */
-    private String fee;
+
+    private String court_level;
+
+
     /** 场地情况 */
-    private String courtDesc;
+    private String description;
     /** 场地片数 */
-    private String courtCount;
+    private String court_number;
     /** 权重 */
     private String weights;
-    /** 经度 */
-    private double longitude;
-    /** 纬度 */
-    private double latitude;
+
+    public String getCourt_level() {
+        return court_level;
+    }
+
+    public void setCourt_level(String court_level) {
+        this.court_level = court_level;
+    }
+
+    private String price;
+
+    /** 省市id */
+    private BaseCity province_model;
+
     /** 城市id */
-    private BaseCity city_BaseCity_Model;
+    private BaseCity city_model;
     /** 区县id */
-    private BaseCity district_BaseCity_Model;
+    private BaseCity district_model;
 
 
 	
@@ -78,55 +86,10 @@ public class Court {
     	this.phone = phone;
     }
     
-    /** get 开始时间 */
-    public String getStartTime(){
-    	return this.startTime;
-    }
 
-    /** set 开始时间 */
-    public void setStartTime(String startTime){
-    	this.startTime = startTime;
-    }
+
     
-    /** get 结束时间 */
-    public String getEndTime(){
-    	return this.endTime;
-    }
 
-    /** set 结束时间 */
-    public void setEndTime(String endTime){
-    	this.endTime = endTime;
-    }
-    
-    /** get 收费标准 */
-    public String getFee(){
-    	return this.fee;
-    }
-
-    /** set 收费标准 */
-    public void setFee(String fee){
-    	this.fee = fee;
-    }
-    
-    /** get 场地情况 */
-    public String getCourtDesc(){
-    	return this.courtDesc;
-    }
-
-    /** set 场地情况 */
-    public void setCourtDesc(String courtDesc){
-    	this.courtDesc = courtDesc;
-    }
-    
-    /** get 场地片数 */
-    public String getCourtCount(){
-    	return this.courtCount;
-    }
-
-    /** set 场地片数 */
-    public void setCourtCount(String courtCount){
-    	this.courtCount = courtCount;
-    }
     
     /** get 权重 */
     public String getWeights(){
@@ -138,70 +101,74 @@ public class Court {
     	this.weights = weights;
     }
     
-    /** get 经度 */
-    public double getLongitude(){
-    	return this.longitude;
-    }
-
-    /** set 经度 */
-    public void setLongitude(double longitude){
-    	this.longitude = longitude;
-    }
-    
-    /** get 纬度 */
-    public double getLatitude(){
-    	return this.latitude;
-    }
-
-    /** set 纬度 */
-    public void setLatitude(double latitude){
-    	this.latitude = latitude;
-    }
-    
-    /** get 城市id */
-    public BaseCity getCity_BaseCity_Model(){
-    	return this.city_BaseCity_Model;
-    }
-
-    /** set 城市id */
-    public void setCity_BaseCity_Model(BaseCity city_BaseCity_Model){
-    	this.city_BaseCity_Model = city_BaseCity_Model;
-    }
-    
-    /** get 区县id */
-    public BaseCity getDistrict_BaseCity_Model(){
-    	return this.district_BaseCity_Model;
-    }
-
-    /** set 区县id */
-    public void setDistrict_BaseCity_Model(BaseCity district_BaseCity_Model){
-    	this.district_BaseCity_Model = district_BaseCity_Model;
-    }
-    
 
 
 
-    public String toString(){
-		return "Court{" + 
-			",id='" + id + "'" + 
-			",title='" + title + "'" +
-			",address='" + address + "'" + 
-			",phone='" + phone + "'" + 
-			",startTime='" + startTime + "'" + 
-			",endTime='" + endTime + "'" + 
-			",fee='" + fee + "'" + 
-			",courtDesc='" + courtDesc + "'" + 
-			",courtCount='" + courtCount + "'" + 
-			",weights='" + weights + "'" + 
-			",longitude='" + longitude + "'" + 
-			",latitude='" + latitude + "'" + 
-			",city_BaseCity_Model='" + city_BaseCity_Model + "'" + 
-			",district_BaseCity_Model='" + district_BaseCity_Model + "'" + 
-		
-		"}";
+    public BaseCity getProvince_model() {
+        return province_model;
+    }
 
+    public void setProvince_model(BaseCity province_model) {
+        this.province_model = province_model;
     }
 
 
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCourt_number() {
+        return court_number;
+    }
+
+    public void setCourt_number(String court_number) {
+        this.court_number = court_number;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public BaseCity getCity_model() {
+        return city_model;
+    }
+
+    public void setCity_model(BaseCity city_model) {
+        this.city_model = city_model;
+    }
+
+    public BaseCity getDistrict_model() {
+        return district_model;
+    }
+
+    public void setDistrict_model(BaseCity district_model) {
+        this.district_model = district_model;
+    }
+
+    @Override
+    public String toString() {
+        return "Court{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", court_level='" + court_level + '\'' +
+
+                ", description='" + description + '\'' +
+                ", court_number='" + court_number + '\'' +
+                ", weights='" + weights + '\'' +
+                ", price='" + price + '\'' +
+                ", province_model=" + province_model +
+                ", city_model=" + city_model +
+                ", district_model=" + district_model +
+                '}';
+    }
 }

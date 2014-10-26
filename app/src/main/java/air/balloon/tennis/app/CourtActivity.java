@@ -70,10 +70,10 @@ public class CourtActivity extends ParentActivity {
                 court=courtDTO.getCourt_Court_Model();
 
                 txt1.setText(court.getTitle());
-                txt2.setText(court.getCourtDesc());
+                txt2.setText(court.getDescription());
                 txt3.setText(court.getAddress());
                 txt4.setText(court.getPhone());
-                txt5.setText(court.getCourtCount());
+                txt5.setText(court.getCourt_number());
 
 
 

@@ -7,13 +7,13 @@ import java.util.List;
  */
 public class CourtListDTO {
 
-    List<Court> court_Court_List;
+    List<Court> results;
 
-    public List<Court> getCourt_Court_List() {
-        return court_Court_List;
+    public List<Court> getResults() {
+        return results;
     }
 
-    public void setCourt_Court_List(List<Court> Court_Court_List) {
-        this.court_Court_List = Court_Court_List;
+    public void setResults(List<Court> results) {
+        this.results = results;
     }
 }

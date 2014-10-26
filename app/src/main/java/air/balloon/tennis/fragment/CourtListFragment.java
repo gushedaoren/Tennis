@@ -58,7 +58,7 @@ public class CourtListFragment extends MListFragment {
     @Override
     public void onStart() {
         super.onStart();
-        getCourts(keyword,page);
+        getCourts(9,page);
     }
 
     @Override
@@ -113,12 +113,12 @@ public class CourtListFragment extends MListFragment {
 
             pullToRefreshView.onRefreshComplete();
             super.onPostExecute(result);
-            getCourts(keyword,page);
+            getCourts(9 ,1);
         }
     }
-    public Object getCourts(String keyword,int page) {
+    public Object getCourts(int cityid,int page) {
         MyLog.print(TAG, "getCourts");
-        String url= API.getCourtList(keyword,page);
+        String url= API.getMunicipalityCourtList(cityid,page);
 
         Log.i(TAG,url);
         AsyncHttpClient client = new AsyncHttpClient(Config.HTTP_PORT);
@@ -139,7 +139,7 @@ public class CourtListFragment extends MListFragment {
 
                 CourtListDTO dto=gson.fromJson(json,listType);
 
-                courts=dto.getCourt_Court_List();
+                courts=dto.getResults();
 
                 MyLog.print(TAG,"size:"+courts.size());
 

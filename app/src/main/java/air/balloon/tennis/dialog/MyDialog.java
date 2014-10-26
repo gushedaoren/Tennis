@@ -145,19 +145,19 @@ public class MyDialog {
     private List<BaseCity> getCitys(String keyWord) {
         List<BaseCity> cities=new ArrayList<BaseCity>();
         SQLiteDatabase db= MyDatabase.getInstance(context);
-        String sql="SELECT * FROM city  where cityName like '"+keyWord+"%' order by isHot desc, firstLetter";
+        String sql="SELECT * FROM tennis_city  where cityName like '"+keyWord+"%' order by  title_pinyin";
         MyLog.print(TAG,sql);
         Cursor cursor=db.rawQuery(sql,null);
 
         while(cursor.moveToNext()){
             BaseCity city=new BaseCity();
-            city.setId(cursor.getLong(cursor.getColumnIndexOrThrow("cityId")));
+            city.setId(cursor.getLong(cursor.getColumnIndexOrThrow("id")));
             city.setCityName(cursor.getString(cursor.getColumnIndexOrThrow("cityName")));
-            city.setFirsrLetter(cursor.getString(cursor.getColumnIndexOrThrow("firstLetter")));
-            int hot=cursor.getInt(cursor.getColumnIndexOrThrow("isHot"));
-            if(hot==1){
-                city.setHot(true);
-            }else city.setHot(false);
+            city.setTitle_pinyin(cursor.getString(cursor.getColumnIndexOrThrow("title_pinyin")));
+//            int hot=cursor.getInt(cursor.getColumnIndexOrThrow("isHot"));
+//            if(hot==1){
+//                city.setHot(true);
+//            }else city.setHot(false);
             cities.add(city);
         }
 

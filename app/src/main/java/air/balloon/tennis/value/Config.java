@@ -18,6 +18,6 @@ public class Config {
 
     public static final int HTTPS_PORT=443;
 
-    public static final String Server="http://218.244.146.177:8080";
+    public static final String Server="http://nixuchen.com:8000";
 
 }

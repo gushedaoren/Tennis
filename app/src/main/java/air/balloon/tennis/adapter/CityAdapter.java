@@ -44,7 +44,7 @@ public class CityAdapter extends BaseAdapter implements SectionIndexer {
         int i=0;
         for(BaseCity city:citys){
 
-            String header=city.getFirsrLetter();
+            String header=city.getTitle_pinyin().substring(0,1);
             if(city.isHot())header=context.getString(R.string.hot_city);
 
             if(!hashMap.containsKey(header)){
@@ -69,7 +69,7 @@ public class CityAdapter extends BaseAdapter implements SectionIndexer {
     public String getItem(int position) {
         if(citys.get(position).isHot())return "热";
 
-        return citys.get(position).getFirsrLetter();
+        return citys.get(position).getTitle_pinyin();
     }
 
     @Override
@@ -95,7 +95,7 @@ public class CityAdapter extends BaseAdapter implements SectionIndexer {
         holder= (Holder) convertView.getTag();
        }
 
-        String header=city.getFirsrLetter();
+        String header=city.getTitle_pinyin();
         if(city.isHot())header=context.getString(R.string.hot_city);
 
         MyLog.print(TAG,"pos:"+position);

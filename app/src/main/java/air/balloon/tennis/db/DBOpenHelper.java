@@ -6,8 +6,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,31 +32,20 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     private final String TAG="DBOpenHelper";
     Context context;
+    String databaseName;
 
     public DBOpenHelper(Context context) {
 
 
         super(context, Config.DatabaseName, null, Config.DATABASE_VERSION);
         this.context=context;
+        this.databaseName=Config.DatabaseName;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         MyLog.print(TAG, "onCreate");
-        createDatabase(db);
-
-    }
-
-    private void createDatabase(SQLiteDatabase db) {
-         String[] sqls=readFile(R.raw.city);
-
-        MyLog.print(TAG,"sql length:"+sqls.length);
-        for(int i=0;i<sqls.length-1;i++){
-            if(sqls[i].equals(""))continue;
-            MyLog.print(TAG,sqls[i]);
-            db.execSQL(sqls[i]+";");
-        }
-
+        copyDatabase();
 
     }
 
@@ -59,39 +53,48 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
 
 
-    private String[] readFile(int rawid) {
 
-        String[] sqls=null;
-        String result="";
+    public void copyDatabase(){
+
+
+        // Open your local db as the input stream
+        InputStream myInput = context.getResources()
+                .openRawResource(R.raw.tennis);
+        // Path to the just created empty db
+        String outFileName = "/data/data/"+context.getPackageName()+"/"+databaseName;
+        Log.i(getClass().getSimpleName(),"copyDatabase:"+outFileName );
+
+
+        // Open the empty db as the output stream
+        OutputStream myOutput = null;
         try {
 
+            File file=new File(outFileName);
+            if(file.exists())file.delete();
 
+            myOutput = new FileOutputStream(outFileName);
 
+            // transfer bytes from the inputfile to the outputfile
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = myInput.read(buffer)) > 0) {
+                myOutput.write(buffer, 0, length);
+            }
+            // Close the streams
+            myOutput.flush();
+            myOutput.close();
+            myInput.close();
 
-            InputStream is = context.getResources().openRawResource(rawid);
-            int size = is.available();
-
-
-            // Read the entire asset into a local byte buffer.
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-
-            // Convert the buffer into a string.
-            result = new String(buffer, "UTF-8");
-
-        //    MyLog.print(TAG,"sql:"+result);
-
-            sqls=result.split(";");
-
-
-
-        } catch (Exception e) {
-             Log.e(TAG,e.toString());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-          return sqls;
+
+
 
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

@@ -14,12 +14,10 @@ public class BaseCity {
     /** 城市类型 */
     private String cityType;
 
-    private String firsrLetter;
+    private String title_pinyin;
     private boolean isHot;
 
-    public String getFirsrLetter() {
-        return firsrLetter;
-    }
+
 
     public boolean isHot() {
         return isHot;
@@ -29,8 +27,12 @@ public class BaseCity {
         this.isHot = isHot;
     }
 
-    public void setFirsrLetter(String firsrLetter) {
-        this.firsrLetter = firsrLetter;
+    public String getTitle_pinyin() {
+        return title_pinyin;
+    }
+
+    public void setTitle_pinyin(String title_pinyin) {
+        this.title_pinyin = title_pinyin;
     }
 
     /** get  */

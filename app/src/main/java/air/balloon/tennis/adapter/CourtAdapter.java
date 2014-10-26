@@ -59,8 +59,8 @@ public class CourtAdapter extends BaseAdapter {
         }
 
         holder.txt1.setText(court.getTitle());
-        holder.txt2.setText(court.getCourtDesc());
-        holder.txt3.setText(court.getFee());
+        holder.txt2.setText(court.getAddress());
+        holder.txt3.setText(court.getPrice());
         return convertView;
     }
 
