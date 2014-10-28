@@ -90,6 +90,8 @@ public class CourtListFragment extends MListFragment {
             @Override
             public void onRefresh(PullToRefreshBase<ListView> refreshView) {
                 // Do work to refresh the list here.
+
+
                 new GetDataTask().execute();
             }
         });
@@ -107,6 +109,13 @@ public class CourtListFragment extends MListFragment {
 
         View footerView=LayoutInflater.from(getActivity()).inflate(R.layout.footer_view,null);
         pullToRefreshView.getRefreshableView().addFooterView(footerView);
+        footerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                page++;
+                new GetDataTask().execute();
+            }
+        });
     }
 
     @Override
@@ -122,15 +131,15 @@ public class CourtListFragment extends MListFragment {
     }
 
 
-    class GetDataTask extends AsyncTask<Void, Void, String[]> {
+    class GetDataTask extends AsyncTask<Void, Void, Object[]> {
 
         @Override
-        protected String[] doInBackground(Void... params) {
+        protected Object[] doInBackground(Void... params) {
             return new String[0];
         }
 
         @Override
-        protected void onPostExecute(String[] result) {
+        protected void onPostExecute(Object[] result) {
             // Call onRefreshComplete when the list has been refreshed.
 
 

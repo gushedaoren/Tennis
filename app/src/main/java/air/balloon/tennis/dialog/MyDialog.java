@@ -24,6 +24,7 @@ import java.util.List;
 import air.balloon.tennis.adapter.CityAdapter;
 
 import air.balloon.tennis.app.R;
+
 import air.balloon.tennis.db.MyDatabase;
 import air.balloon.tennis.model.BaseCity;
 import air.balloon.tennis.utils.MyLog;
@@ -132,7 +133,8 @@ public class MyDialog {
                 BaseCity city=citys.get(position);
                 MyLog.print(TAG,"city:"+city.getCityName());
                 sp.edit().putString("city",city.getCityName()).commit();
-                sp.edit().putInt("cityid",city.getId()).commit();
+                sp.edit().putInt("cityid", city.getId()).commit();
+
                 dialog.dismiss();
                 ((Activity)context).invalidateOptionsMenu();
             }
