@@ -26,6 +26,18 @@ public class CourtAdapter extends BaseAdapter {
         this.courts = courts;
     }
 
+    public CourtAdapter(Context context) {
+        this.context = context;
+    }
+
+    public List<Court> getCourts() {
+        return courts;
+    }
+
+    public void setCourts(List<Court> courts) {
+        this.courts = courts;
+    }
+
     @Override
     public int getCount() {
         return courts.size();

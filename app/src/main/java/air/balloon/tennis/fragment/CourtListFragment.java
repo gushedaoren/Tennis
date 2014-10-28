@@ -48,9 +48,13 @@ public class CourtListFragment extends MListFragment {
     int page=1;
     List<Court> courts;
 
+    CourtAdapter adapter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        adapter=new CourtAdapter(getActivity());
         Log.i(
                 TAG,"onCreate"
         );
@@ -116,6 +120,8 @@ public class CourtListFragment extends MListFragment {
                 new GetDataTask().execute();
             }
         });
+
+
     }
 
     @Override
@@ -197,10 +203,14 @@ public class CourtListFragment extends MListFragment {
 
 
 
+                adapter.setCourts(courts);
 
-                CourtAdapter adapter=new CourtAdapter(getActivity().getBaseContext(),courts);
+                if(page==1)
                 pullToRefreshView.setAdapter(adapter);
 
+
+
+                adapter.notifyDataSetChanged();
 
 
 
