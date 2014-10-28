@@ -148,7 +148,7 @@ public class CourtListFragment extends MListFragment {
             getCourts(cityid ,page);
         }
     }
-    public Object getCourts(int cityid,int page) {
+    public Object getCourts(int cityid, final int page) {
         cityid=sp.getInt("cityid",73);
         MyLog.print(TAG, "getCourts");
 
@@ -185,14 +185,16 @@ public class CourtListFragment extends MListFragment {
 
                 CourtListDTO dto=gson.fromJson(json,listType);
 
-                courts=dto.getResults();
+                if(page==1){
+                    courts=dto.getResults();
+                }else{
+                    courts.addAll(dto.getResults());
+                }
+
 
                 MyLog.print(TAG,"size:"+courts.size());
 
-                for (Iterator iterator =courts.iterator(); iterator.hasNext();) {
-                    Court court = (Court) iterator.next();
-                    MyLog.print(TAG, "court:" + court.toString());
-                }
+
 
 
 
