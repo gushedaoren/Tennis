@@ -136,6 +136,7 @@ public class CourtListFragment extends MListFragment implements ChangeCityListen
 
     @Override
     public void onChangeCityAction(int cityid) {
+        page=1;
         new GetDataTask().execute();
     }
 
