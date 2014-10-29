@@ -18,11 +18,13 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 import air.balloon.tennis.adapter.CityAdapter;
 
+import air.balloon.tennis.app.CourtListActivity;
 import air.balloon.tennis.app.R;
 
 import air.balloon.tennis.db.MyDatabase;
@@ -137,6 +139,18 @@ public class MyDialog {
 
                 dialog.dismiss();
                 ((Activity)context).invalidateOptionsMenu();
+
+
+                if(context instanceof CourtListActivity){
+
+                    CourtListActivity courtListActivity=(CourtListActivity)context;
+
+                    courtListActivity.changeCityListener.onChangeCityAction(city.getId());
+
+
+
+                }
+
             }
         });
 
@@ -161,6 +175,10 @@ public class MyDialog {
 //            if(hot==1){
 //                city.setHot(true);
 //            }else city.setHot(false);
+
+
+
+
             cities.add(city);
         }
 

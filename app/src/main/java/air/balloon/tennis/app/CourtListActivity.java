@@ -1,10 +1,14 @@
 package air.balloon.tennis.app;
 
+import android.app.Fragment;
 import android.os.Bundle;
+
+import air.balloon.tennis.city.ChangeCityListener;
 
 
 public class CourtListActivity extends MListViewActivity {
 
+    public ChangeCityListener changeCityListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,5 +27,17 @@ public class CourtListActivity extends MListViewActivity {
     }
 
 
+    @Override
+    public void onAttachFragment(Fragment fragment) {
+        super.onAttachFragment(fragment);
 
+        try{
+            changeCityListener=(ChangeCityListener)fragment;
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 }

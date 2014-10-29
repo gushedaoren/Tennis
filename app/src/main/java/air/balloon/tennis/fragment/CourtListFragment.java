@@ -1,5 +1,6 @@
 package air.balloon.tennis.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -23,17 +24,14 @@ import org.apache.http.Header;
 
 import java.io.Serializable;
 import java.lang.reflect.Type;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 import air.balloon.tennis.adapter.CourtAdapter;
-import air.balloon.tennis.adapter.EventAdapter;
 import air.balloon.tennis.app.CourtActivity;
 import air.balloon.tennis.app.R;
+import air.balloon.tennis.city.ChangeCityListener;
 import air.balloon.tennis.model.Court;
 import air.balloon.tennis.model.CourtListDTO;
-import air.balloon.tennis.model.Event;
 import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
 import air.balloon.tennis.value.Config;
@@ -42,7 +40,7 @@ import air.balloon.tennis.value.Config;
 /**
  * Created by oliver on 5/9/14.
  */
-public class CourtListFragment extends MListFragment {
+public class CourtListFragment extends MListFragment implements ChangeCityListener {
 
     String keyword="";
     int page=1;
@@ -136,6 +134,11 @@ public class CourtListFragment extends MListFragment {
 
     }
 
+    @Override
+    public void onChangeCityAction(int cityid) {
+        new GetDataTask().execute();
+    }
+
 
     class GetDataTask extends AsyncTask<Void, Void, Object[]> {
 
@@ -220,4 +223,10 @@ public class CourtListFragment extends MListFragment {
 
         return null;
     }
+
+
+
+
+
+
 }
