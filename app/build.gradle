@@ -3,6 +3,10 @@ apply plugin: 'android'
 android {
     compileSdkVersion 19
     buildToolsVersion '20.0.0'
+
+
+
+
     signingConfigs {
         debug {
             storeFile file('/Users/oliver/Develop/android_sign_key')
@@ -71,7 +75,9 @@ android {
     }
 }
 
-
+repositories {
+    mavenCentral()
+}
 
 
 dependencies {
@@ -92,5 +98,9 @@ dependencies {
 
 
 
-
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
 

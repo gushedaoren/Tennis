@@ -43,7 +43,7 @@
     <string name="OK">确定</string>
     <string name="Cancel">取消</string>
     <string name="exit_dialog_message">亲，真得要退出吗?</string>
-    <string name="share_content">爱运动的小伙伴们看过来，快来下载爱运动@网球，关注我们的微信公众账号:FreeTeam,后期将推出其他运动APP。</string>
+    <string name="share_content">爱运动的小伙伴们看过来，快来下载爱运动@网球，关注我们的微信公众账号:FreeTeam</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="city">城市</string>
     <string name="hot_city">热门城市</string>
