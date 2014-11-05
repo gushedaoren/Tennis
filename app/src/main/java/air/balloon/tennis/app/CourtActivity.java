@@ -1,7 +1,11 @@
 package air.balloon.tennis.app;
 
+import android.content.Intent;
+import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -43,6 +47,16 @@ public class CourtActivity extends ParentActivity {
         txt6= (TextView) findViewById(R.id.txt6);
         initData();
 
+        if(court.getAddress()!=null||court.getAddress().length()>0){
+            txt3.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);//下划线
+            txt3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openMap(court.getAddress());
+                }
+            });
+        }
+
     }
 
     private void initData() {
@@ -50,10 +64,31 @@ public class CourtActivity extends ParentActivity {
 
                 court= (Court) getIntent().getSerializableExtra("court");
                 txt1.setText(court.getTitle());
-                txt2.setText(Html.fromHtml(court.getDescription()));
+                txt2.setText(Html.fromHtml(court.getDescription().replace(" ","")));
                 txt3.setText(court.getAddress());
                 txt4.setText(court.getPhone());
                 txt5.setText(court.getCourt_number());
 
+    }
+
+
+    private void openMap(String location){
+        // Uri uri = Uri.parse("geo:39,116");
+        try {
+
+            Uri uri = Uri.parse("geo:0,0?q="+location);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        } catch (Exception e) {
+
+
+            String str="http://ditu.google.cn/?q="+location;
+            Uri uri = Uri.parse(str);
+            //通过Uri获得编辑框里的//地址，加上http://是为了用户输入时可以不要输入
+            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+            //建立Intent对象，传入uri
+            startActivity(intent);
+
+        }
     }
 }
