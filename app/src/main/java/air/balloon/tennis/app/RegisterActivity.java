@@ -6,11 +6,15 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
@@ -23,7 +27,7 @@ public class RegisterActivity extends ParentActivity implements View.OnClickList
     Button btnSubmit;
 
     CheckBox checkMan,checkWoman;
-    String gender="man";
+    int gender=0 ; //man 0 ,woman 1
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,7 @@ public class RegisterActivity extends ParentActivity implements View.OnClickList
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     checkWoman.setChecked(false);
-                    gender="man";
+                    gender=0;
                     MyLog.print(TAG,"gender:"+gender);
                 }
 
@@ -55,7 +59,7 @@ public class RegisterActivity extends ParentActivity implements View.OnClickList
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     checkMan.setChecked(false);
-                    gender="woman";
+                    gender=1;
                     MyLog.print(TAG,"gender:"+gender);
                 }
 
@@ -84,7 +88,17 @@ public class RegisterActivity extends ParentActivity implements View.OnClickList
         switch (v.getId()){
             case R.id.btn_submit:
 
-                doSubmit();
+                String pass1, pass2;
+                pass1=editPass1.getText().toString();
+                pass2=editPass1.getText().toString();
+                if(pass1.equals(pass2)){
+                    doSubmit();
+                }else if(pass1.equals("")){
+                    Toast.makeText(RegisterActivity.this,"密码不能为空",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(RegisterActivity.this,"两次密码不一致",Toast.LENGTH_SHORT).show();
+                }
+
 
                 break;
         }
@@ -94,12 +108,33 @@ public class RegisterActivity extends ParentActivity implements View.OnClickList
     private void doSubmit() {
         AsyncHttpClient client=new AsyncHttpClient();
         String url= API.REGISTER;
-        client.get(url,new AsyncHttpResponseHandler(){
+        RequestParams params=new RequestParams();
+        params.put("username",editUser.getText().toString());
+        params.put("password",editPass1.getText().toString());
+        params.put("sex",gender+"");
+
+        client.get(this, url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 super.onSuccess(statusCode, headers, responseBody);
 
+                String result=new String(responseBody);
 
+                try {
+                    JSONObject json=new JSONObject(result);
+                    String code=json.optString("statusCode");
+                    String message=json.optString("message");
+                    if(code.equals("0")){
+
+                        Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(RegisterActivity.this,"用户已存在",Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
             }
         });

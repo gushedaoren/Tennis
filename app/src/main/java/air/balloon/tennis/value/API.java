@@ -10,7 +10,7 @@ import air.balloon.tennis.utils.MD5;
  */
 public class API {
 
-   public static final String REGISTER="http://www.baidu.com/";
+
 
 
    public static final String PRE_API=Config.Server+"/tennis/";
@@ -39,6 +39,9 @@ public class API {
 
         return url;
     }
+
+
+
 
 
     public static final String getMunicipalityCourtList(int provinceid,int page){
@@ -78,5 +81,10 @@ public class API {
         String url=PRE_API+end;
         return url;
     }
+
+
+    public static final String REGISTER=PRE_API+"register";
+
+    public static final String LOGIN=PRE_API+"login";
 
 }

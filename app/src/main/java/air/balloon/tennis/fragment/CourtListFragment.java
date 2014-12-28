@@ -65,7 +65,12 @@ public class CourtListFragment extends MListFragment implements ChangeCityListen
 
 
 
-        getCourts(cityid,page);
+        try{
+            getCourts(cityid,page);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
 
     }
 
