@@ -113,9 +113,11 @@ public class LoginActivity extends ParentActivity implements OnClickListener{
                     if(code.equals("0")){
 
                         Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                        saveLoginState(true);
+                        finish();
 
                     }else{
-                        Toast.makeText(LoginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"用户名或者密码错误",Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -126,6 +128,19 @@ public class LoginActivity extends ParentActivity implements OnClickListener{
             }
         });
     }
+
+
+    private void saveLoginState(boolean hasLogin){
+
+        /*
+           已经登录true，未登录false；
+         */
+
+
+        sp.edit().putBoolean("loginState",hasLogin
+        ).commit();
+
+    };
 }
 
 

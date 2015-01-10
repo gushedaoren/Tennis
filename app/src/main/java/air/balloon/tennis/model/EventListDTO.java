@@ -7,13 +7,13 @@ import java.util.List;
  */
 public class EventListDTO {
 
-    List<Event> event_Event_List;
+    List<Event> results;
 
-    public List<Event> getEvent_Event_List() {
-        return event_Event_List;
+    public List<Event> getResults() {
+        return results;
     }
 
-    public void setEvent_Event_List(List<Event> event_Event_List) {
-        this.event_Event_List = event_Event_List;
+    public void setEvent_Event_List(List<Event> results) {
+        this.results = results;
     }
 }

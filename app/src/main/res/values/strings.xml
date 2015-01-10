@@ -49,7 +49,6 @@
     <string name="hot_city">热门城市</string>
     <string name="hot">热</string>
     <string name="hint_search_city">搜索城市</string>
-
-
+    <string name="title_activity_event_promotional_acivity">EventPromotionalAcivity</string>
 
 </resources>

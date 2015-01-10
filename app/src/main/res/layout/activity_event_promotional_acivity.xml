@@ -1,0 +1,227 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="air.balloon.tennis.app.FriendActivity">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_title"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+
+                <EditText
+                    android:id="@+id/edit1"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_desc"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+
+                <EditText
+                    android:id="@+id/edit2"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_address"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+
+                <EditText
+                    android:id="@+id/edit3"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_level"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+
+                <EditText
+                    android:id="@+id/edit4"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:inputType="numberDecimal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_phone"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+
+                <EditText
+                    android:id="@+id/edit5"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:inputType="phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_time"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+
+                <EditText
+                    android:id="@+id/edit6"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_fee"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+
+                <EditText
+                    android:id="@+id/edit7"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="@string/event_remark"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content" />
+
+
+                <EditText
+                    android:id="@+id/edit8"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+
+
+
+
+            <Button
+                android:id="@+id/btn_ok"
+
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:text="提交"
+                android:gravity="center"
+                android:background="@color/theme3"
+                android:textColor="@color/theme"
+                android:textStyle="bold"/>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

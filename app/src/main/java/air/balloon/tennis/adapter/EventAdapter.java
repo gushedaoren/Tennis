@@ -66,10 +66,10 @@ public class EventAdapter extends BaseAdapter {
         }
         holder.txt1.setText(event.getTitle());
         holder.txt2.setText(event.getAddress());
-        holder.txt3.setText(event.getEventTime());
-        holder.txt4.setText(event.getTotolPrice()+"");
-        holder.txt5.setText(event.getRequire());
-        holder.txt6.setText(event.getParticipant_TennisUser_List()+"");
+//        holder.txt3.setText(event.getEventTime());
+//        holder.txt4.setText(event.getTotolPrice()+"");
+//        holder.txt5.setText(event.getRequire());
+//        holder.txt6.setText(event.getParticipant_TennisUser_List()+"");
 
 
         return convertView;

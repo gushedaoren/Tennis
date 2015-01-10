@@ -182,7 +182,8 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
                 break;
             case R.id.btn_right1:
 
-
+                intent.setClass(getApplicationContext(),EventPromotionalAcivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_right2:
                 intent.setClass(getApplicationContext(),LoginActivity.class);

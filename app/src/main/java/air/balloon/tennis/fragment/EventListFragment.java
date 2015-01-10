@@ -49,6 +49,7 @@ import air.balloon.tennis.value.API;
  */
 public class EventListFragment extends MListFragment {
     List<Event> events;
+    int page=1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +63,7 @@ public class EventListFragment extends MListFragment {
     @Override
     public void onStart() {
         super.onStart();
-        getEvents();
+        getEvents(73,"",1);
 
     }
 
@@ -119,13 +120,13 @@ public class EventListFragment extends MListFragment {
 
             pullToRefreshView.onRefreshComplete();
             super.onPostExecute(result);
-            getEvents();
+            getEvents(73,"",page);
         }
     }
-    public Object getEvents() {
+    public Object getEvents(int cityid,String keyword, final int page) {
         MyLog.print(TAG, "getEvents");
 
-        String url= API.getEventList("",1);
+        String url= API.getEventList(keyword,page);
         MyLog.print(TAG,url);
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, new AsyncHttpResponseHandler() {
@@ -137,6 +138,8 @@ public class EventListFragment extends MListFragment {
                 String json=new String(responseBody);
 
 
+
+                MyLog.print(TAG,json);
                 Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
                         .create();
 
@@ -146,7 +149,10 @@ public class EventListFragment extends MListFragment {
 
                         EventListDTO dto=gson.fromJson(json,type);
 
-                        events=dto.getEvent_Event_List();
+
+
+
+                        events=dto.getResults();
 
                         MyLog.print(TAG,"size:"+events.size());
 

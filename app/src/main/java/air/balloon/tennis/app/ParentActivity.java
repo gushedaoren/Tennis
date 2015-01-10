@@ -64,6 +64,17 @@ public class ParentActivity extends FragmentActivity{
 
     }
 
+
+
+
+
+
+
+    public boolean getLoginState(){
+        return sp.getBoolean("loginState",false);
+    }
+
+
     @Override
     protected void onStart() {
         super.onStart();

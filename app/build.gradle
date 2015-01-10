@@ -47,21 +47,7 @@ android {
 
 
      */
-    android.applicationVariants.all { variant ->
-        variant.outputs.get(0).processManifest.doLast {
-            copy {
-                from("${buildDir}/manifests") {
-                    include "${variant.dirName}/AndroidManifest.xml"
-                }
-                into("${buildDir}/manifests/$variant.name")
 
-                filter {
-                    String line -> line.replaceAll("unreleased", "$variant.dirName")
-                }
-                variant.processResources.manifestFile = file("${buildDir}/manifests/${variant.name}/${variant.dirName}/AndroidManifest.xml")
-            }
-        }
-    }
     lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,

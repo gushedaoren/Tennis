@@ -58,9 +58,9 @@ public class EventActivity extends ParentActivity {
                 txt1.setText(event.getTitle());
                 txt2.setText(event.getDescrition());
                 txt3.setText(event.getAddress());
-                txt4.setText(event.getRequire());
-                txt5.setText(event.getPhone());
-                txt6.setText(event.getEventTime());
+//                txt4.setText(event.getRequire());
+//                txt5.setText(event.getPhone());
+//                txt6.setText(event.getEventTime());
             }
         });
 
