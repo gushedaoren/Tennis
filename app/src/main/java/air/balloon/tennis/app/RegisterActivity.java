@@ -127,6 +127,7 @@ public class RegisterActivity extends ParentActivity implements View.OnClickList
                     if(code.equals("0")){
 
                         Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
+                        finish();
                     }else{
                         Toast.makeText(RegisterActivity.this,"用户已存在",Toast.LENGTH_SHORT).show();
                     }

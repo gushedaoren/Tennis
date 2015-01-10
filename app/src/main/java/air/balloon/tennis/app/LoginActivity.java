@@ -16,6 +16,7 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import air.balloon.tennis.utils.MyLog;
 import air.balloon.tennis.value.API;
 
 
@@ -86,6 +87,7 @@ public class LoginActivity extends ParentActivity implements OnClickListener{
     private void doLogin() {
 
 
+        MyLog.print(TAG,"doLogin");
         String user=et_user.getText().toString();
         String password=et_password.getText().toString();
 

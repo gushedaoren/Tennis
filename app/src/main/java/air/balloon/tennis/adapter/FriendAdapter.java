@@ -64,7 +64,7 @@ public class FriendAdapter extends BaseAdapter {
         }
 
         holder.txt1.setText(user.getName());
-        holder.txt2.setText(user.getGender_BaseEnum_Model().getEnumDesc());
+  //      holder.txt2.setText(user.getGender_BaseEnum_Model().getEnumDesc());
 
         return convertView;
     }

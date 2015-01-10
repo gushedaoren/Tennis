@@ -57,7 +57,7 @@ public class API {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        String url=PRE_API+"tennis_user?filter_LIKE_title="+keyword+"&page="+page+"";
+        String url=PRE_API+"user_list?filter_LIKE_title="+keyword+"&page="+page+"";
 
         return url;
     }
@@ -83,11 +83,15 @@ public class API {
     }
 
 
+
+
     public static final String REGISTER=PRE_API+"register";
 
     public static final String LOGIN=PRE_API+"login";
 
 
     public static final String POST_EVENT=PRE_API+"post_event";
+
+    public static final String USER_LIST=PRE_API+"user_list";
 
 }

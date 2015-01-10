@@ -7,13 +7,13 @@ import java.util.List;
  */
 public class TennisUserDTO {
 
-    List<TennisUser> user_TennisUser_List;
+    List<TennisUser> results;
 
     public List<TennisUser> getUser_TennisUser_List() {
-        return user_TennisUser_List;
+        return results;
     }
 
-    public void setUser_TennisUser_List(List<TennisUser> user_TennisUser_List) {
-        this.user_TennisUser_List = user_TennisUser_List;
+    public void setUser_TennisUser_List(List<TennisUser> results) {
+        this.results = results;
     }
 }
