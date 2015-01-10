@@ -85,7 +85,11 @@ public class EventListFragment extends MListFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(getActivity(), EventActivity.class);
-                intent.putExtra("id", events.get(position - 1).getId());
+
+
+                Bundle b=new Bundle();
+                b.putSerializable("event",events.get(position-1));
+                intent.putExtras(b);
                 startActivity(intent);
             }
         });

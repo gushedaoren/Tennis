@@ -34,35 +34,22 @@ public class EventActivity extends ParentActivity {
         init();
     }
 
-    private void initData(long id) {
-
-        AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
-        String url= API.getEvent(id);
-
-        MyLog.print(TAG, url);
-        asyncHttpClient.get(url,new AsyncHttpResponseHandler(){
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                super.onSuccess(statusCode, headers, responseBody);
+    private void initData() {
 
 
-                String result=new String(responseBody);
-                MyLog.print(TAG,result);
+                event= (Event) getIntent().getSerializableExtra("event");
 
-                Gson gson=new Gson();
-
-                EventDTO eventDTO=gson.fromJson(result,EventDTO.class);
-                event=eventDTO.getEvent_Event_Model();
-
-                txt1.setText(event.getTitle());
+               txt1.setText(event.getTitle());
                 txt2.setText(event.getDescrition());
                 txt3.setText(event.getAddress());
-//                txt4.setText(event.getRequire());
-//                txt5.setText(event.getPhone());
-//                txt6.setText(event.getEventTime());
-            }
-        });
+                txt4.setText(event.getLevel());
+                txt5.setText(event.getPhone());
+        txt6.setText(event.getTime());
+        txt7.setText(event.getFee());
+        txt8.setText(event.getRemark());
+
+
+
 
     }
 
@@ -79,12 +66,8 @@ public class EventActivity extends ParentActivity {
         txt8= (TextView) findViewById(R.id.txt8);
 
 
-        id=getIntent().getLongExtra("id",0);
 
-        MyLog.print(TAG,"id:"+id);
+            initData();
 
-        if(id!=0){
-            initData(id);
-        }
     }
 }

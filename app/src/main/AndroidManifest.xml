@@ -102,9 +102,11 @@
 
         <service android:name="air.balloon.tennis.service.MainService" />
 
+        <activity android:name=".EventPromotionalAcivity" >
+        </activity>
         <activity
-            android:name=".EventPromotionalAcivity"
-            >
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about" >
         </activity>
     </application>
 

@@ -50,5 +50,7 @@
     <string name="hot">热</string>
     <string name="hint_search_city">搜索城市</string>
     <string name="title_activity_event_promotional_acivity">EventPromotionalAcivity</string>
+    <string name="title_activity_about">About</string>
+    <string name="about">作者：倪旭晨\n联系电话:13761398648\n邮箱：gushedaoren@gmail.com\n个人网站:nixuchen.com\n关注微信公众号:FreeTeam</string>
 
 </resources>

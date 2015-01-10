@@ -71,6 +71,12 @@ public class MoreActivity extends ParentActivity implements View.OnClickListener
                 startActivity(intent);
                 break;
 
+
+            case R.id.btn_more1:
+                intent.setClass(MoreActivity.this,AboutActivity.class);
+                startActivity(intent);
+                break;
+
         }
 
     }

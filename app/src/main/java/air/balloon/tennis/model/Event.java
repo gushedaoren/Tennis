@@ -1,5 +1,6 @@
 package air.balloon.tennis.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * @author gen code 
  *
  */
-public class Event {
+public class Event implements Serializable{
 	
     /**  */
     private long id;
@@ -18,7 +19,34 @@ public class Event {
 
     private String phone;
 
+    public String getTime() {
+        return time;
+    }
 
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getFee() {
+        return fee;
+    }
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    private String time;
+    private String fee;
+
+    private String remark;
 
     private String address;
 

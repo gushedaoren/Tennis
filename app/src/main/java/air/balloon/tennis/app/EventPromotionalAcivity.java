@@ -67,7 +67,6 @@ public class EventPromotionalAcivity extends ParentActivity {
 
 
         AsyncHttpClient client = new AsyncHttpClient(Config.HTTP_PORT);
-        String level,phone;
 
 
 
@@ -76,7 +75,7 @@ public class EventPromotionalAcivity extends ParentActivity {
         params.put("description",edit2.getText().toString());
         params.put("address",edit3.getText().toString());
         params.put("level",edit4.getText().toString() );
-        params.put("phone",edit5.getText().toString());
+      params.put("phone",edit5.getText().toString());
         params.put("time",edit6.getText().toString());
         params.put("fee",edit7.getText().toString());
         params.put("remark",edit8.getText().toString());
