@@ -33,7 +33,7 @@ public class TennisUser {
     private BaseEnum gender_BaseEnum_Model;
 
 
-	
+
     /** get  */
     public long getId(){
     	return this.id;
@@ -73,7 +73,7 @@ public class TennisUser {
     public void setRoles(String roles){
     	this.roles = roles;
     }
-    
+
     /** get 注册时间 */
     public String getRegisterDate(){
     	return this.registerDate;
@@ -83,7 +83,7 @@ public class TennisUser {
     public void setRegisterDate(String registerDate){
     	this.registerDate = registerDate;
     }
-    
+
     /** get 地址 */
     public String getAddress(){
     	return this.address;
@@ -93,7 +93,7 @@ public class TennisUser {
     public void setAddress(String address){
     	this.address = address;
     }
-    
+
     /** get 头像 */
     public String getPhote(){
     	return this.phote;
@@ -103,7 +103,7 @@ public class TennisUser {
     public void setPhote(String phote){
     	this.phote = phote;
     }
-    
+
     /** get 联系电话 */
     public String getPhone(){
     	return this.phone;
@@ -113,7 +113,7 @@ public class TennisUser {
     public void setPhone(String phone){
     	this.phone = phone;
     }
-    
+
     /** get 积分 */
     public String getIntegral(){
     	return this.integral;
@@ -123,7 +123,7 @@ public class TennisUser {
     public void setIntegral(String integral){
     	this.integral = integral;
     }
-    
+
     /** get 等级 */
     public String getAccountLevel(){
     	return this.accountLevel;
@@ -133,7 +133,7 @@ public class TennisUser {
     public void setAccountLevel(String accountLevel){
     	this.accountLevel = accountLevel;
     }
-    
+
     /** get 登陆状态 0 在线 1 不在线 2 黑名单 */
     public BaseEnum getState_BaseEnum_Model(){
     	return this.state_BaseEnum_Model;
@@ -143,7 +143,7 @@ public class TennisUser {
     public void setState_BaseEnum_Model(BaseEnum state_BaseEnum_Model){
     	this.state_BaseEnum_Model = state_BaseEnum_Model;
     }
-    
+
     /** get 性别 0代表男士 1代表女士 */
     public BaseEnum getGender_BaseEnum_Model(){
     	return this.gender_BaseEnum_Model;
@@ -153,25 +153,25 @@ public class TennisUser {
     public void setGender_BaseEnum_Model(BaseEnum gender_BaseEnum_Model){
     	this.gender_BaseEnum_Model = gender_BaseEnum_Model;
     }
-    
+
 
 
 
     public String toString(){
-		return "TennisUser{" + 
-			",id='" + id + "'" + 
-			",account='" + account + "'" + 
-			",name='" + name + "'" + 
-			",roles='" + roles + "'" + 
-			",registerDate='" + registerDate + "'" + 
-			",address='" + address + "'" + 
-			",phote='" + phote + "'" + 
-			",phone='" + phone + "'" + 
-			",integral='" + integral + "'" + 
-			",accountLevel='" + accountLevel + "'" + 
-			",state_BaseEnum_Model='" + state_BaseEnum_Model + "'" + 
-			",gender_BaseEnum_Model='" + gender_BaseEnum_Model + "'" + 
-		
+		return "TennisUser{" +
+			",id='" + id + "'" +
+			",account='" + account + "'" +
+			",name='" + name + "'" +
+			",roles='" + roles + "'" +
+			",registerDate='" + registerDate + "'" +
+			",address='" + address + "'" +
+			",phote='" + phote + "'" +
+			",phone='" + phone + "'" +
+			",integral='" + integral + "'" +
+			",accountLevel='" + accountLevel + "'" +
+			",state_BaseEnum_Model='" + state_BaseEnum_Model + "'" +
+			",gender_BaseEnum_Model='" + gender_BaseEnum_Model + "'" +
+
 		"}";
 
     }

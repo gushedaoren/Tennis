@@ -55,7 +55,7 @@
             android:value="532ce0a856240bfd4d0aec30" />
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="unreleased" />
+            android:value="360" />
 
         <activity
             android:name=".MainActivity"
@@ -107,6 +107,10 @@
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about" >
+        </activity>
+        <activity
+            android:name=".PersonalPageActivity"
+            android:label="@string/title_activity_person_page" >
         </activity>
     </application>
 

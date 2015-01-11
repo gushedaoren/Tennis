@@ -60,6 +60,8 @@ public class LoginActivity extends ParentActivity implements OnClickListener{
         findViewById(R.id.btn_login).setOnClickListener(this);
 
 
+
+
     }
 
     @Override
@@ -70,6 +72,7 @@ public class LoginActivity extends ParentActivity implements OnClickListener{
                 intent.setClass(getApplicationContext(),RegisterActivity.class
                 );
                 startActivity(intent);
+                finish();
 
                 break;
 
@@ -118,6 +121,10 @@ public class LoginActivity extends ParentActivity implements OnClickListener{
                         saveLoginState(true);
                         finish();
 
+                        Intent it=new Intent(LoginActivity.this,PersonalPageActivity.class
+                        );
+                        startActivity(it);
+
                     }else{
                         Toast.makeText(LoginActivity.this,"用户名或者密码错误",Toast.LENGTH_SHORT).show();
                     }
@@ -132,17 +139,7 @@ public class LoginActivity extends ParentActivity implements OnClickListener{
     }
 
 
-    private void saveLoginState(boolean hasLogin){
 
-        /*
-           已经登录true，未登录false；
-         */
-
-
-        sp.edit().putBoolean("loginState",hasLogin
-        ).commit();
-
-    };
 }
 
 

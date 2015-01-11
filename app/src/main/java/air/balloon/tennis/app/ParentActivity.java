@@ -66,7 +66,17 @@ public class ParentActivity extends FragmentActivity{
 
 
 
+    public void saveLoginState(boolean hasLogin){
 
+        /*
+           已经登录true，未登录false；
+         */
+
+
+        sp.edit().putBoolean("loginState",hasLogin
+        ).commit();
+
+    }
 
 
 

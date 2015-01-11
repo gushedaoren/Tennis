@@ -1,12 +1,13 @@
 package air.balloon.tennis.app;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.umeng.common.Log;
@@ -20,8 +21,6 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-import air.balloon.tennis.db.MyDatabase;
-import air.balloon.tennis.dialog.MyDialog;
 import air.balloon.tennis.notify.FeedbackNotification;
 import umeng.fb.ConversationActivity;
 
@@ -32,6 +31,7 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
     FrameLayout btnLeft1,btnLeft2,btnLeft3,btnRight1,btnRight2,btnRight3;
 
 
+    ImageView imgLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +69,7 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
                 Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
             } else {
+                saveLoginState(false);
                 finish();
                 System.exit(0);
             }
@@ -146,6 +147,7 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
         btnRight3=(FrameLayout) findViewById(R.id.btn_right3);
 
 
+        imgLogo= (ImageView) findViewById(R.id.img_logo);
         btnLeft1.setOnClickListener(this);
         btnLeft2.setOnClickListener(this);
         btnLeft3.setOnClickListener(this);
@@ -154,6 +156,7 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
         btnRight1.setOnClickListener(this);
         btnRight2.setOnClickListener(this);
         btnRight3.setOnClickListener(this);
+        imgLogo.setOnClickListener(this);
     }
 
 
@@ -186,16 +189,42 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
                 startActivity(intent);
                 break;
             case R.id.btn_right2:
-                intent.setClass(getApplicationContext(),LoginActivity.class);
-                startActivity(intent);
+                boolean logined=getLoginState();
+                if(logined){
+                    intent.setClass(getApplicationContext(),PersonalPageActivity.class);
+                    startActivity(intent);
+                }else{
+                    intent.setClass(getApplicationContext(),LoginActivity.class);
+                    startActivity(intent);
+                }
+
+
+
                 break;
             case R.id.btn_right3:
                 intent.setClass(getApplicationContext(),MoreActivity.class);
                 startActivity(intent);
 
                 break;
+
+            case R.id.img_logo:
+
+                Uri uri= Uri.parse("http://nixuchen.com");   //指定网址
+                intent.setAction("android.intent.action.VIEW");
+                intent.setData(uri);
+                startActivity(intent);
+
+                break;
             default:
                 break;
         }
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+
     }
 }
